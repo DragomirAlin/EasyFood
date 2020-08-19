@@ -2,6 +2,7 @@
 ### Version 1.0
 //// -- Tables and References
 
+
 // Creating tables
 Table users as U {
   id int [pk, increment] // auto-increment
