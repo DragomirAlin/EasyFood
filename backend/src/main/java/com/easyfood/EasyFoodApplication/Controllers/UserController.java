@@ -1,4 +1,4 @@
-package com.easyfood.EasyFoodApplication.Controller;
+package com.easyfood.EasyFoodApplication.Controllers;
 
 import org.springframework.stereotype.Controller;
 
