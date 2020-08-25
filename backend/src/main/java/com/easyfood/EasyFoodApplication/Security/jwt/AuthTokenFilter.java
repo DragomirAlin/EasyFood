@@ -1,7 +1,7 @@
 package com.easyfood.EasyFoodApplication.Security.jwt;
 
 
-import com.easyfood.EasyFoodApplication.Security.UserDetailsServiceImpl;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,8 @@
-package com.easyfood.EasyFoodApplication.Security;
+package com.easyfood.EasyFoodApplication.Security.service;
 
 import com.easyfood.EasyFoodApplication.Models.User;
 import com.easyfood.EasyFoodApplication.Repository.UserRepository;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

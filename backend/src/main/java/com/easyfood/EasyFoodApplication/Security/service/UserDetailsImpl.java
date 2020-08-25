@@ -1,4 +1,4 @@
-package com.easyfood.EasyFoodApplication.Security;
+package com.easyfood.EasyFoodApplication.Security.service;
 
 import com.easyfood.EasyFoodApplication.Models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;

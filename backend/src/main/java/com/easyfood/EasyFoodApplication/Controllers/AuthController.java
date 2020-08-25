@@ -10,7 +10,7 @@ import com.easyfood.EasyFoodApplication.Payload.response.MessageResponse;
 import com.easyfood.EasyFoodApplication.Repository.RoleRepository;
 import com.easyfood.EasyFoodApplication.Repository.UserRepository;
 import com.easyfood.EasyFoodApplication.Security.jwt.JwtUtils;
-import com.easyfood.EasyFoodApplication.Security.UserDetailsImpl;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

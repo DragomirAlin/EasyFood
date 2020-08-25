@@ -1,7 +1,7 @@
 package com.easyfood.EasyFoodApplication.Security.jwt;
 import java.util.Date;
 
-import com.easyfood.EasyFoodApplication.Security.UserDetailsImpl;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

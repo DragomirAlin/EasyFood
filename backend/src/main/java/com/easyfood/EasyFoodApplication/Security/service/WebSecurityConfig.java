@@ -1,7 +1,8 @@
-package com.easyfood.EasyFoodApplication.Security;
+package com.easyfood.EasyFoodApplication.Security.service;
 
 import com.easyfood.EasyFoodApplication.Security.jwt.AuthEntryPointJwt;
 import com.easyfood.EasyFoodApplication.Security.jwt.AuthTokenFilter;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
