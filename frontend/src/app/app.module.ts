@@ -13,6 +13,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { AuthService } from './_helpers/auth.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { ViewproductComponent } from './viewproduct/viewproduct.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BoardAdminComponent,
     BoardUserComponent,
     BoardModeratorComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddproductComponent,
+    ViewproductComponent
   ],
   imports: [
     BrowserModule,
