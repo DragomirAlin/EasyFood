@@ -27,7 +27,7 @@ public class Product{
     private double price;
     @Column(name = "byAdded")
     private String byAdded;
-git 
+
     public Product() {
 
     }
