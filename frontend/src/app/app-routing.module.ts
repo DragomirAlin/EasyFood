@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'product', component: AddproductComponent },
-
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

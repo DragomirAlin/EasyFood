@@ -20,12 +20,13 @@ public class ProductController {
     UserDetailsImpl userDetails;
 
     @PostMapping("/add")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addProduct(@RequestBody Product product){
         productService.addProduct(product);
     }
 
     @GetMapping("/viewAll")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public List<Product> viewAllProduct(){
         return productService.viewAllProducts();
     }
