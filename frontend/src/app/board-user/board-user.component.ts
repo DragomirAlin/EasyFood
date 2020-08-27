@@ -8,6 +8,7 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardUserComponent implements OnInit {
   content = '';
+  content2 = '';
 
   constructor(private userService: UserService) { }
 
@@ -20,6 +21,17 @@ export class BoardUserComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
+
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content2 = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
+
+  
 
 }

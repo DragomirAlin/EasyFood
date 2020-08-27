@@ -1,8 +1,5 @@
-package com.easyfood.EasyFoodApplication.Security.service;
+package com.easyfood.EasyFoodApplication.Security;
 
-import com.easyfood.EasyFoodApplication.Security.jwt.AuthEntryPointJwt;
-import com.easyfood.EasyFoodApplication.Security.jwt.AuthTokenFilter;
-import com.easyfood.EasyFoodApplication.Security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,16 +14,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.easyfood.EasyFoodApplication.Security.jwt.AuthEntryPointJwt;
+import com.easyfood.EasyFoodApplication.Security.jwt.AuthTokenFilter;
+import com.easyfood.EasyFoodApplication.Security.service.UserDetailsServiceImpl;
+
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Autowired
     UserDetailsServiceImpl userDetailsService;
+
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
@@ -63,6 +61,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }
-
-
-
