@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class Product{
+public class Product {
 
 
     @Id
@@ -14,13 +14,13 @@ public class Product{
     @Column(name = "weight")
     private double weight;
     @Column(name = "calories")
-    private Integer calories;
+    private double calories;
     @Column(name = "proteins")
-    private Integer proteins;
+    private double proteins;
     @Column(name = "carbohydrates")
-    private Integer carbohydrates;
+    private double carbohydrates;
     @Column(name = "fat")
-    private Integer fat;
+    private double fat;
     @Column(name = "shop")
     private String shop;
     @Column(name = "price")
@@ -36,62 +36,60 @@ public class Product{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double getWeight() {
         return weight;
-    }
-
-    public int getCalories() {
-        return calories;
-    }
-
-    public int getProteins() {
-        return proteins;
-    }
-
-    public int getCarbohydrates() {
-        return carbohydrates;
-    }
-
-    public int getFat() {
-        return fat;
-    }
-
-    public String getShop() {
-        return shop;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-
-
-    public void setNameProduct(String name) {
-        this.name = name;
     }
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public void setCalories(int calories) {
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
         this.calories = calories;
     }
 
-    public void setProteins(int proteins) {
+    public double getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(double proteins) {
         this.proteins = proteins;
     }
 
-    public void setCarbohydrates(int carbohydrates) {
+    public double getCarbohydrates() {
+        return carbohydrates;
+    }
+
+    public void setCarbohydrates(double carbohydrates) {
         this.carbohydrates = carbohydrates;
     }
 
-    public void setFat(int fat) {
+    public double getFat() {
+        return fat;
+    }
+
+    public void setFat(double fat) {
         this.fat = fat;
+    }
+
+    public String getShop() {
+        return shop;
     }
 
     public void setShop(String shop) {
         this.shop = shop;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
@@ -105,5 +103,4 @@ public class Product{
     public void setByAdded(String byAdded) {
         this.byAdded = byAdded;
     }
-
 }

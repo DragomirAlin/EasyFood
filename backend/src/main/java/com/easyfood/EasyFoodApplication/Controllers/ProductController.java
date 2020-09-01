@@ -33,7 +33,7 @@ public class ProductController {
 
     @GetMapping("/searchByProductName/{nameProduct}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public List<Product> searchByName(@PathVariable String nameProduct){
+    public Product searchByName(@PathVariable String nameProduct){
         return productService.searchProductByName(nameProduct);
     }
 

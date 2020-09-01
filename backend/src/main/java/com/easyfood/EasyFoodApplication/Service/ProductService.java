@@ -24,8 +24,8 @@ public class ProductService {
         return productArrayList;
     }
 
-    public List<Product> searchProductByName(String name){
-        return productRepository.findAllByName(name);
+    public Product searchProductByName(String name){
+        return productRepository.findProductBy(name);
     }
 
 
