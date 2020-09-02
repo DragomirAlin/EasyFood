@@ -9,27 +9,46 @@ public class Product {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "weight")
     private double weight;
+
     @Column(name = "calories")
     private double calories;
+
     @Column(name = "proteins")
     private double proteins;
+
     @Column(name = "carbohydrates")
     private double carbohydrates;
+
     @Column(name = "fat")
     private double fat;
+
     @Column(name = "shop")
     private String shop;
+
     @Column(name = "price")
     private double price;
-    @Column(name = "byAdded")
-    private String byAdded;
+
+    @Column(name = "by_added")
+    private String by_added;
 
     public Product() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -96,11 +115,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getByAdded() {
-        return byAdded;
+    public String getBy_added() {
+        return by_added;
     }
 
-    public void setByAdded(String byAdded) {
-        this.byAdded = byAdded;
+    public void setBy_added(String by_added) {
+        this.by_added = by_added;
     }
 }

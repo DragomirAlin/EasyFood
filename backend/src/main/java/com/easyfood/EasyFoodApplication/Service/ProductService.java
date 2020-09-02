@@ -25,7 +25,8 @@ public class ProductService {
     }
 
     public Product searchProductByName(String name){
-        return productRepository.findProductBy(name);
+        return productRepository.findByName(name);
+
     }
 
 

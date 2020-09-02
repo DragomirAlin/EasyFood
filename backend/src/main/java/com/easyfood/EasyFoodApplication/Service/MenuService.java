@@ -25,13 +25,13 @@ public class MenuService {
     }
 
     private void addInMenu(String name){
-        Product product = productRepository.findProductBy(name);
+        Product product = productRepository.findByName(name);
         menu.add(product);
     }
 
     private void addInMenu(String name, double weight){
-        Product product = productRepository.findProductBy(name);
-        product.setWeight(weight);
+        Product product = productRepository.findByName(name);
+         product.setWeight(weight);
         menu.add(product);
     }
 
