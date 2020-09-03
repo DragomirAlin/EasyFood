@@ -1,6 +1,7 @@
 package com.easyfood.EasyFoodApplication.Service;
 
 import com.easyfood.EasyFoodApplication.Models.Product;
+import com.easyfood.EasyFoodApplication.Models.ProductWeight;
 import com.easyfood.EasyFoodApplication.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,18 +25,24 @@ public class MenuService {
         this.menu = new ArrayList<Product>();
     }
 
-    private void addInMenu(String name){
+    public void addInMenu(String name){
         Product product = productRepository.findByName(name);
         menu.add(product);
     }
 
-    private void addInMenu(String name, double weight){
+    public void addInMenu(ProductWeight productWeight){
+        String name = productWeight.getNameProduct();
+        double weight = productWeight.getWeightProduct();
         Product product = productRepository.findByName(name);
-         product.setWeight(weight);
+        product.setCalories(calculateCaloriesProduct(product,weight));
+        product.setProteins(calculateProteinGrams(product, weight));
+        product.setFat(calculateFatGrams(product, weight));
+        product.setCarbohydrates(calculateCarboGrams(product, weight));
+        product.setWeight(weight);
         menu.add(product);
     }
 
-    private ArrayList<Product> viewProductsFromMenu(){
+    public ArrayList<Product> viewProductsFromMenu(){
         return this.menu;
     }
 
@@ -66,11 +73,20 @@ public class MenuService {
         return fat * this.fat;
     }
 
-    public double calculateCaloriesProduct(Product product, double weight){
+    private double calculateCaloriesProduct(Product product, double weight){
        double proteinsKal = calculateCaloriesFromProteins(calculateProteinGrams(product,weight));
        double carboKal = calculateCaloriesFromCarbo(calculateCarboGrams(product, weight));
        double fatKal = calculateCaloriesFromFat(calculateFatGrams(product,weight));
        return proteinsKal + carboKal + fatKal;
+    }
+
+    private double calculatePricePer100grams(Product product){
+        return product.getPrice()/100;
+    }
+
+    private double calculatePriceProductByWeight(Product product, double weight){
+        double pricePer100grams = calculatePricePer100grams(product);
+        return pricePer100grams * weight;
     }
 
 
