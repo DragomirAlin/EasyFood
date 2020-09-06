@@ -15,15 +15,17 @@ public class BreakfastService extends MenuService {
         breakfastMenu = new ArrayList<>();
     }
 
+    public void addMenu(String nameProduct){
+        Product product = productRepository.findByName(nameProduct);
+        breakfastMenu.add(product);
+    }
+
     public void addMenu(ProductWeight productWeight) {
         Product product = super.setCalculateParam(productWeight);
         breakfastMenu.add(product);
     }
 
-    public void addMenu(String nameProduct){
-        Product product = productRepository.findByName(nameProduct);
-        breakfastMenu.add(product);
-    }
+
 
     public ArrayList<Product> viewProductsFromMenu() {
         return this.breakfastMenu;

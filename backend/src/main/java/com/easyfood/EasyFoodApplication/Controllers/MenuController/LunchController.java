@@ -3,36 +3,38 @@ package com.easyfood.EasyFoodApplication.Controllers.MenuController;
 import com.easyfood.EasyFoodApplication.Models.Product;
 import com.easyfood.EasyFoodApplication.Models.ProductWeight;
 import com.easyfood.EasyFoodApplication.Service.MenuService.BreakfastService;
-import com.easyfood.EasyFoodApplication.Service.MenuService.MenuService;
+import com.easyfood.EasyFoodApplication.Service.MenuService.LunchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/test/menu/breakfast")
-public class BreakfastController {
+@RequestMapping("/api/test/menu/lunch")
+public class LunchController {
+
     @Autowired
-    BreakfastService breakfastService;
+    LunchService lunchService;
 
     @PostMapping("/add")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addProductInMenu(@RequestBody String nameProduct) {
-        breakfastService.addInMenu(nameProduct);
+        lunchService.addInMenu(nameProduct);
     }
 
     @PostMapping("/addWithWeight")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addProductWithWeight(@RequestBody ProductWeight productWeight) {
-        breakfastService.addInMenu(productWeight);
+        lunchService.addInMenu(productWeight);
     }
 
     @GetMapping(path = "/viewMenu")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public ArrayList<Product> viewMenu() {
-        return breakfastService.viewProductsFromMenu();
+        return lunchService.viewProductsFromMenu();
     }
+
+
 }
