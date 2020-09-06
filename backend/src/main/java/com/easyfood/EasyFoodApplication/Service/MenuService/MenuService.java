@@ -1,4 +1,4 @@
-package com.easyfood.EasyFoodApplication.Service;
+package com.easyfood.EasyFoodApplication.Service.MenuService;
 
 import com.easyfood.EasyFoodApplication.Models.Product;
 import com.easyfood.EasyFoodApplication.Models.ProductWeight;
@@ -34,6 +34,12 @@ public class MenuService {
     }
 
     public void addInMenu(ProductWeight productWeight) {
+       Product product = setCalculateParam(productWeight);
+       menu.add(product);
+    }
+
+    //calculate new price, calories and macronutrients by new weight
+    protected Product setCalculateParam(ProductWeight productWeight){
         String name = productWeight.getNameProduct();
         double weight = productWeight.getWeightProduct();
         Product product = productRepository.findByName(name);
@@ -44,24 +50,25 @@ public class MenuService {
         newProduct.setCarbohydrates(calculateCarboGrams(product, weight));
         newProduct.setPrice(calculatePriceProductByWeight(product, weight));
         newProduct.setWeight(weight);
-        menu.add(product);
+        return newProduct;
+
     }
 
     public ArrayList<Product> viewProductsFromMenu() {
         return this.menu;
     }
 
-    private double calculateProteinGrams(Product product, double weight) {
+    protected double calculateProteinGrams(Product product, double weight) {
         double proteinsPer100g = product.getProteins() / aHundredGrams;
         return proteinsPer100g * weight;
     }
 
-    private double calculateCarboGrams(Product product, double weight) {
+    protected double calculateCarboGrams(Product product, double weight) {
         double carbohydratesPer100g = product.getCarbohydrates() / aHundredGrams;
         return carbohydratesPer100g * weight;
     }
 
-    private double calculateFatGrams(Product product, double weight) {
+    protected double calculateFatGrams(Product product, double weight) {
         double fatPer100g = product.getFat() / aHundredGrams;
         return fatPer100g * weight;
     }
@@ -78,7 +85,7 @@ public class MenuService {
         return fat * this.fat;
     }
 
-    private double calculateCaloriesProduct(Product product, double weight) {
+    protected double calculateCaloriesProduct(Product product, double weight) {
         double proteinsKal = calculateCaloriesFromProteins(calculateProteinGrams(product, weight));
         double carboKal = calculateCaloriesFromCarbo(calculateCarboGrams(product, weight));
         double fatKal = calculateCaloriesFromFat(calculateFatGrams(product, weight));
@@ -86,7 +93,7 @@ public class MenuService {
     }
 
 
-    private double calculatePriceProductByWeight(Product product, double weight) {
+    protected double calculatePriceProductByWeight(Product product, double weight) {
         double price = (weight * product.getPrice()) / product.getWeight();
         return price;
     }
