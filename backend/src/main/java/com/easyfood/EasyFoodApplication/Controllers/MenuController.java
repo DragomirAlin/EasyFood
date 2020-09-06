@@ -20,19 +20,20 @@ public class MenuController {
 
     @PostMapping("/add")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void addProductInMenu(@RequestBody String nameProduct){
+    public void addProductInMenu(@RequestBody String nameProduct) {
         menuService.addInMenu(nameProduct);
     }
 
     @PostMapping("/addWithWeight")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void addProductWithWeight(@RequestBody ProductWeight productWeight){
+    public void addProductWithWeight(@RequestBody ProductWeight productWeight) {
         menuService.addInMenu(productWeight);
     }
 
     @GetMapping(path = "/viewMenu")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<Product> viewMenu(){
+    public ArrayList<Product> viewMenu() {
         return menuService.viewProductsFromMenu();
     }
 }
+

@@ -6,91 +6,90 @@ import com.easyfood.EasyFoodApplication.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MenuService {
 
-    final static double proteins = 4;
-    final static double carbohydrates = 4;
-    final static double fat = 9;
+    final static double proteins = 4.0;
+    final static double carbohydrates = 4.0;
+    final static double fat = 9.0;
+    final static double aHundredGrams = 100.0;
+
 
     @Autowired
     ProductRepository productRepository;
 
     private ArrayList<Product> menu;
 
-    public MenuService(){
+    public MenuService() {
         this.menu = new ArrayList<Product>();
     }
 
-    public void addInMenu(String name){
+    public void addInMenu(String name) {
         Product product = productRepository.findByName(name);
         menu.add(product);
     }
 
-    public void addInMenu(ProductWeight productWeight){
+    public void addInMenu(ProductWeight productWeight) {
         String name = productWeight.getNameProduct();
         double weight = productWeight.getWeightProduct();
         Product product = productRepository.findByName(name);
-        product.setCalories(calculateCaloriesProduct(product,weight));
-        product.setProteins(calculateProteinGrams(product, weight));
-        product.setFat(calculateFatGrams(product, weight));
-        product.setCarbohydrates(calculateCarboGrams(product, weight));
-        product.setWeight(weight);
+        Product newProduct = productRepository.findByName(name);
+        newProduct.setCalories(calculateCaloriesProduct(product, weight));
+        newProduct.setProteins(calculateProteinGrams(product, weight));
+        newProduct.setFat(calculateFatGrams(product, weight));
+        newProduct.setCarbohydrates(calculateCarboGrams(product, weight));
+        newProduct.setPrice(calculatePriceProductByWeight(product, weight));
+        newProduct.setWeight(weight);
         menu.add(product);
     }
 
-    public ArrayList<Product> viewProductsFromMenu(){
+    public ArrayList<Product> viewProductsFromMenu() {
         return this.menu;
     }
 
-    private double calculateProteinGrams(Product product, double weight){
-        double proteinsPer100g = product.getProteins()/100;
+    private double calculateProteinGrams(Product product, double weight) {
+        double proteinsPer100g = product.getProteins() / aHundredGrams;
         return proteinsPer100g * weight;
     }
 
-    private double calculateCarboGrams(Product product, double weight){
-        double carbohydratesPer100g = product.getCarbohydrates()/100;
+    private double calculateCarboGrams(Product product, double weight) {
+        double carbohydratesPer100g = product.getCarbohydrates() / aHundredGrams;
         return carbohydratesPer100g * weight;
     }
 
-    private double calculateFatGrams(Product product, double weight){
-        double fatPer100g = product.getFat()/100;
+    private double calculateFatGrams(Product product, double weight) {
+        double fatPer100g = product.getFat() / aHundredGrams;
         return fatPer100g * weight;
     }
 
-    private double calculateCaloriesFromProteins(double protein){
+    private double calculateCaloriesFromProteins(double protein) {
         return protein * this.proteins;
     }
 
-    private double calculateCaloriesFromCarbo(double carbohydrates){
+    private double calculateCaloriesFromCarbo(double carbohydrates) {
         return carbohydrates * this.carbohydrates;
     }
 
-    private double calculateCaloriesFromFat(double fat){
+    private double calculateCaloriesFromFat(double fat) {
         return fat * this.fat;
     }
 
-    private double calculateCaloriesProduct(Product product, double weight){
-       double proteinsKal = calculateCaloriesFromProteins(calculateProteinGrams(product,weight));
-       double carboKal = calculateCaloriesFromCarbo(calculateCarboGrams(product, weight));
-       double fatKal = calculateCaloriesFromFat(calculateFatGrams(product,weight));
-       return proteinsKal + carboKal + fatKal;
-    }
-
-    private double calculatePricePer100grams(Product product){
-        return product.getPrice()/100;
-    }
-
-    private double calculatePriceProductByWeight(Product product, double weight){
-        double pricePer100grams = calculatePricePer100grams(product);
-        return pricePer100grams * weight;
+    private double calculateCaloriesProduct(Product product, double weight) {
+        double proteinsKal = calculateCaloriesFromProteins(calculateProteinGrams(product, weight));
+        double carboKal = calculateCaloriesFromCarbo(calculateCarboGrams(product, weight));
+        double fatKal = calculateCaloriesFromFat(calculateFatGrams(product, weight));
+        return proteinsKal + carboKal + fatKal;
     }
 
 
-
+    private double calculatePriceProductByWeight(Product product, double weight) {
+        double price = (weight * product.getPrice()) / product.getWeight();
+        return price;
+    }
 
 
 }
