@@ -16,12 +16,12 @@ public class SnacksService extends MenuService {
         snacksMenu = new ArrayList<>();
     }
 
-    public void addMenu(String nameProduct){
+    public void addInMenu(String nameProduct){
         Product product = productRepository.findByName(nameProduct);
         snacksMenu.add(product);
     }
 
-    public void addMenu(ProductWeight productWeight) {
+    public void addInMenu(ProductWeight productWeight) {
         Product product = super.setCalculateParam(productWeight);
         snacksMenu.add(product);
     }

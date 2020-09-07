@@ -2,6 +2,8 @@ package com.easyfood.EasyFoodApplication.Service.MenuService;
 
 import com.easyfood.EasyFoodApplication.Models.Product;
 import com.easyfood.EasyFoodApplication.Models.ProductWeight;
+import com.easyfood.EasyFoodApplication.Repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,25 +11,27 @@ import java.util.ArrayList;
 @Service
 public class BreakfastService extends MenuService {
 
-    private ArrayList<Product> breakfastMenu;
+    @Autowired
+    ProductRepository productRepository;
+
+    private ArrayList<Product> breakfastMenu = new ArrayList<>();;
 
     public BreakfastService() {
-        breakfastMenu = new ArrayList<>();
+        this.breakfastMenu = new ArrayList<Product>();
     }
 
-    public void addMenu(String nameProduct){
+    public void addInMenu(String nameProduct){
         Product product = productRepository.findByName(nameProduct);
         breakfastMenu.add(product);
     }
 
-    public void addMenu(ProductWeight productWeight) {
+
+    public void addInMenu(ProductWeight productWeight) {
         Product product = super.setCalculateParam(productWeight);
         breakfastMenu.add(product);
     }
 
-
-
-    public ArrayList<Product> viewProductsFromMenu() {
+    public ArrayList<Product> viewProductsFromMenus() {
         return this.breakfastMenu;
     }
 

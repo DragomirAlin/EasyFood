@@ -15,6 +15,7 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/api/test/menu/breakfast")
 public class BreakfastController {
+
     @Autowired
     BreakfastService breakfastService;
 
@@ -33,6 +34,6 @@ public class BreakfastController {
     @GetMapping(path = "/viewMenu")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public ArrayList<Product> viewMenu() {
-        return breakfastService.viewProductsFromMenu();
+        return breakfastService.viewProductsFromMenus();
     }
 }
