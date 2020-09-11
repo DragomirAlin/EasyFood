@@ -45,6 +45,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    //login
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -66,6 +67,7 @@ public class AuthController {
                 roles));
     }
 
+    //register
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {

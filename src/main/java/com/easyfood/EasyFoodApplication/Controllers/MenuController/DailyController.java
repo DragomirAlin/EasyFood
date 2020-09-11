@@ -23,30 +23,35 @@ public class DailyController {
     @Autowired
     private DailyService dailyService;
 
+    //add product in menu requestBody{name product, type of menu}
     @PostMapping("/add")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addMenu(@RequestBody MenuAdd menuAdd)  {
         dailyService.addMenu(menuAdd);
     }
 
+    //add product in menu with custom weight
     @PostMapping("/addW")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addMenu(@RequestBody MenuWeight menuWeight)  {
         dailyService.addMenuWithWeight(menuWeight);
     }
 
+    //update weight product from menu list
     @PutMapping("/edit/weight/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void editWeight(@PathVariable(value = "id") int id, @RequestBody double weight) throws DailyFoodNotFoundException {
         dailyService.editWeight(id, weight);
     }
 
+    //view all product by type of menu
     @GetMapping("/view/{typeOfMenu}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public ArrayList<DailyFood> viewAll(@PathVariable String typeOfMenu){
         return dailyService.viewAllbreakfast(typeOfMenu);
     }
 
+    //delete product from menu by id
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void deleteProduct(@PathVariable(value = "id") int id){

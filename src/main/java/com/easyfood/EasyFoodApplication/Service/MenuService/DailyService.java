@@ -32,20 +32,23 @@ public class DailyService {
     @Autowired
     private IAuthenticationFacade authenticationFacade;
 
-
+    //save product of Menu in db
     public void addMenu(MenuAdd menuAdd) {
         dailyRepository.save(build(menuAdd));
     }
 
+    //save product of Menu with new weight
     public void addMenuWithWeight(MenuWeight menuWeight) {
         dailyRepository.save(buildWeight(menuWeight));
 
     }
 
+    //view all product by type of menu
     public ArrayList<DailyFood> viewAllbreakfast(String typeOfMenu) {
         return dailyRepository.findByUserAndTypeOfMenu(getUsername(), typeOfMenu);
     }
 
+    //editing the weight of an existing product
     public void editWeight(int id, double weight) throws DailyFoodNotFoundException {
         DailyFood dailyFood = dailyRepository.findById(id)
                 .orElseThrow(() -> new DailyFoodNotFoundException(id));
@@ -54,7 +57,7 @@ public class DailyService {
 
     }
 
-
+    //delete product from menu
     public void deleteProduct(int id) {
         ArrayList<DailyFood> dailyFoodList = dailyRepository.findDailyFoodsByName(getUsername());
         if (dailyFoodList.stream().anyMatch(object ->
@@ -63,11 +66,13 @@ public class DailyService {
         }
     }
 
+    //get username from current session
     private String getUsername() {
         Authentication authentication = authenticationFacade.getAuthentication();
         return authentication.getName();
     }
 
+    //build DailyFood object with standard weight(100grams)
     private DailyFood build(MenuAdd menuAdd) {
         Product product = productRepository.findByName(menuAdd.getNameProduct());
         DailyFood dailyFood = setNewParameters(product, menuAdd.getTypeOfMenu());
@@ -75,6 +80,7 @@ public class DailyService {
         return dailyFood;
     }
 
+    //build DailyFood object with custom weight(calculate all parameters by new weight)
     private DailyFood buildWeight(MenuWeight menuAdd) {
         Product newProduct = setCalculateParam(menuAdd.getNameProduct(), menuAdd.getWeightProduct());
         DailyFood dailyFood = setNewParameters(setCalculateParam(menuAdd.getNameProduct(), menuAdd.getWeightProduct()), menuAdd.getTypeOfMenu());
@@ -82,6 +88,7 @@ public class DailyService {
         return dailyFood;
     }
 
+    //set new parameters for DailyFood object
     public DailyFood setNewParameters(Product product, String typeOfMenu) {
         DailyFood dailyFood = new DailyFood();
         dailyFood.setUser(getUsername());
@@ -97,6 +104,7 @@ public class DailyService {
         return dailyFood;
     }
 
+    //get current datetime with custom format
     private String getData() {
         Date date = new Date();
         String strDateFormat = "yyyy-MM-dd";
@@ -105,6 +113,7 @@ public class DailyService {
         return formattedDate;
     }
 
+    //calculated parameters by weight
     private Product setCalculateParam(String nameProduct, double weight) {
         Product foundProduct = productRepository.findByName(nameProduct);
 
@@ -120,34 +129,40 @@ public class DailyService {
 
     }
 
-
+    //calculated proteins per 100grams and return protein grams for new weight
     private double calculateProteinGrams(double proteins, double weight) {
         double proteinsPer100g = proteins / aHundredGrams;
         return proteinsPer100g * weight;
     }
 
+    //calculated carbohydrates per 100grams and return carbo grams for new weight
     private double calculateCarboGrams(double carbohydrates, double weight) {
         double carbohydratesPer100g = carbohydrates / aHundredGrams;
         return carbohydratesPer100g * weight;
     }
 
+    //calculated fats per 100grams and return fats grams for new weight
     private double calculateFatGrams(double fat, double weight) {
         double fatPer100g = fat / aHundredGrams;
         return fatPer100g * weight;
     }
 
+    //calculated calories from grams of proteins
     private double calculateCaloriesFromProteins(double protein) {
         return (double) protein * this.proteins;
     }
 
+    //calculated calories from grams of carbos
     private double calculateCaloriesFromCarbo(double carbohydrates) {
         return (double) carbohydrates * this.carbohydrates;
     }
 
+    //calculated calories from grams of fats
     private double calculateCaloriesFromFat(double fat) {
         return (double) fat * this.fat;
     }
 
+    //calculated total calories
     private double calculateCaloriesProduct(double proteins, double carbohydrates, double fat, double weight) {
         double proteinsKal = calculateCaloriesFromProteins(calculateProteinGrams(proteins, weight));
         double carboKal = calculateCaloriesFromCarbo(calculateCarboGrams(carbohydrates, weight));
@@ -155,8 +170,9 @@ public class DailyService {
         return (double) (proteinsKal + carboKal + fatKal);
     }
 
+    //calculated price by weight
     private double calculatePriceProductByWeight(double price, double weight, double productWeight) {
-       // double result = (weight * price) / productWeight;
+        // double result = (weight * price) / productWeight;
         double result = price / productWeight;
         return result * weight;
     }

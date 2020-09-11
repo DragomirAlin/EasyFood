@@ -17,18 +17,21 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    //add new product requestBody{name, calories, carbohydrates, proteins, fat, weight(the product when purchased), price(the product when purchased), shop
     @PostMapping("/add")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void addProduct(@RequestBody Product product){
         productService.addProduct(product);
     }
 
+    //view all products
     @GetMapping("/viewAll")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public List<Product> viewAllProduct(){
         return productService.viewAllProducts();
     }
 
+    //search product by name
     @GetMapping("/searchByProductName/{nameProduct}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public Product searchByName(@PathVariable String nameProduct){

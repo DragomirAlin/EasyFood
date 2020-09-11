@@ -19,23 +19,27 @@ public class ProductService {
     @Autowired
     private IAuthenticationFacade authenticationFacade;
 
+    //add new product in db
     public void addProduct(Product product){
         Product newProduct = product;
         newProduct.setBy_added(getUsername());
         productRepository.save(newProduct);
     }
 
+    //view all products
     public List<Product> viewAllProducts(){
         List<Product> productArrayList = new ArrayList<>();
         productArrayList = productRepository.findAll();
         return productArrayList;
     }
 
+    //search product by name
     public Product searchProductByName(String name){
         return productRepository.findByName(name);
 
     }
 
+    //get username from current session
     private String getUsername() {
         Authentication authentication = authenticationFacade.getAuthentication();
         return authentication.getName();
