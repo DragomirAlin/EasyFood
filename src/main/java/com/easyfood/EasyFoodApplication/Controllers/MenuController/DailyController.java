@@ -1,5 +1,6 @@
 package com.easyfood.EasyFoodApplication.Controllers.MenuController;
 
+import com.easyfood.EasyFoodApplication.Exception.DailyFoodNotFoundException;
 import com.easyfood.EasyFoodApplication.Models.*;
 import com.easyfood.EasyFoodApplication.Repository.DailyRepository;
 import com.easyfood.EasyFoodApplication.Security.service.IAuthenticationFacade;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/test/men")
+@RequestMapping("/api/test/menu")
 public class DailyController {
 
     @Autowired
@@ -34,12 +35,22 @@ public class DailyController {
         dailyService.addMenuWithWeight(menuWeight);
     }
 
-
+    @PutMapping("/edit/weight/{id}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
+    public void editWeight(@PathVariable(value = "id") int id, @RequestBody double weight) throws DailyFoodNotFoundException {
+        dailyService.editWeight(id, weight);
+    }
 
     @GetMapping("/view/{typeOfMenu}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public ArrayList<DailyFood> viewAll(@PathVariable String typeOfMenu){
         return dailyService.viewAllbreakfast(typeOfMenu);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
+    public void deleteProduct(@PathVariable(value = "id") int id){
+        dailyService.deleteProduct(id);
     }
 
 }
