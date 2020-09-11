@@ -1,4 +1,4 @@
-package com.easyfood.EasyFoodApplication.Controllers;
+package com.easyfood.EasyFoodApplication.Controllers.MenuController;
 
 import com.easyfood.EasyFoodApplication.Models.*;
 import com.easyfood.EasyFoodApplication.Repository.DailyRepository;
