@@ -5,6 +5,9 @@ import com.easyfood.EasyFoodApplication.Models.*;
 import com.easyfood.EasyFoodApplication.Repository.DailyRepository;
 import com.easyfood.EasyFoodApplication.Repository.ProductRepository;
 import com.easyfood.EasyFoodApplication.Security.service.IAuthenticationFacade;
+import javafx.application.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,8 @@ import java.util.Optional;
 
 @Service
 public class DailyService {
+
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     final static double proteins = 4.0;
     final static double carbohydrates = 4.0;
@@ -35,42 +40,47 @@ public class DailyService {
     //save product of Menu in db
     public void addMenu(MenuAdd menuAdd) {
         dailyRepository.save(build(menuAdd));
+        logger.info("Saved Menu in database");
     }
 
     //save product of Menu with new weight
     public void addMenuWithWeight(MenuWeight menuWeight) {
         dailyRepository.save(buildWeight(menuWeight));
-
+        logger.info("Saved Menu with custom weight in database");
     }
 
     //view all product by type of menu
     public ArrayList<DailyFood> viewAllbreakfast(String typeOfMenu) {
+        logger.info("Return all product by type of menu");
         return dailyRepository.findByUserAndTypeOfMenu(getUsername(), typeOfMenu);
+
     }
 
     //editing the weight of an existing product
-    public void editWeight(int id, double weight) throws DailyFoodNotFoundException {
+    public void editWeight(long id, double weight) throws DailyFoodNotFoundException {
         DailyFood dailyFood = dailyRepository.findById(id)
                 .orElseThrow(() -> new DailyFoodNotFoundException(id));
-
+        logger.info("Update product from menu");
         // dailyRepository.save();
 
     }
 
     //delete product from menu
-    public void deleteProduct(int id) {
-//        ArrayList<DailyFood> dailyFoodList = dailyRepository.findAllByName(getUsername());
-//        if (dailyFoodList.stream().anyMatch(object ->
-//                id == object.getId())) {
-//            dailyRepository.deleteById(id);
-//        }
+    public void deleteProduct(long id) {
+        ArrayList<DailyFood> dailyFoodList = dailyRepository.findAllByName(getUsername());
+        if (dailyFoodList.stream().anyMatch(object ->
+                id == object.getId())) {
+            dailyRepository.deleteById(id);
+        }else{
+            logger.info("The product was not found(delete product from menu)");
+        }
 
-        dailyRepository.deleteById(id);
-
+//        dailyRepository.deleteById(id);
     }
 
     public ArrayList<DailyFood> viewAllCurrentDay(){
         ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(),getData());
+        logger.info("Return all product from current day");
         return currentDayList;
     }
 
@@ -86,6 +96,7 @@ public class DailyService {
         Product product = productRepository.findByName(menuAdd.getNameProduct());
         DailyFood dailyFood = setNewParameters(product, menuAdd.getTypeOfMenu());
         dailyFood.setWeight(100.0);
+        logger.info("Menu object has been built.");
         return dailyFood;
     }
 
@@ -94,6 +105,7 @@ public class DailyService {
         Product newProduct = setCalculateParam(menuAdd.getNameProduct(), menuAdd.getWeightProduct());
         DailyFood dailyFood = setNewParameters(setCalculateParam(menuAdd.getNameProduct(), menuAdd.getWeightProduct()), menuAdd.getTypeOfMenu());
         dailyFood.setWeight(newProduct.getWeight());
+        logger.info("Menu object has been built with custom weight");
         return dailyFood;
     }
 
@@ -110,6 +122,7 @@ public class DailyService {
         dailyFood.setPrice(product.getPrice());
         dailyFood.setWeight(product.getWeight());
         dailyFood.setName(product.getName());
+        logger.info("set new Parameters for object");
         return dailyFood;
     }
 
@@ -134,6 +147,7 @@ public class DailyService {
         newProduct.setPrice(calculatePriceProductByWeight(foundProduct.getPrice(), foundProduct.getWeight(), weight));
         newProduct.setWeight(weight);
         newProduct.setName(foundProduct.getName());
+        logger.info("calculate macronutrients for product");
         return newProduct;
 
     }

@@ -1,5 +1,8 @@
 package com.easyfood.EasyFoodApplication.Security;
 
+import javafx.application.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +25,9 @@ import com.easyfood.EasyFoodApplication.Security.service.UserDetailsServiceImpl;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -46,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+        logger.info("The password has been encoded.");
         return new BCryptPasswordEncoder();
     }
 

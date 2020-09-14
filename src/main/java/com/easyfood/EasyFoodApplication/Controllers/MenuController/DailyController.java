@@ -40,7 +40,7 @@ public class DailyController {
     //update weight product from menu list
     @PutMapping("/edit/weight/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void editWeight(@PathVariable(value = "id") int id, @RequestBody double weight) throws DailyFoodNotFoundException {
+    public void editWeight(@PathVariable(value = "id") long id, @RequestBody double weight) throws DailyFoodNotFoundException {
         dailyService.editWeight(id, weight);
     }
 
@@ -62,7 +62,7 @@ public class DailyController {
         //delete product from menu by id
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void deleteProduct(@PathVariable(value = "id") int id){
+    public void deleteProduct(@PathVariable(value = "id") long id){
         dailyService.deleteProduct(id);
     }
 

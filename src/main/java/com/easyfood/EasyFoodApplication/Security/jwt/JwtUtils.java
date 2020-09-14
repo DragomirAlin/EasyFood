@@ -2,6 +2,7 @@ package com.easyfood.EasyFoodApplication.Security.jwt;
 
 import java.util.Date;
 
+import javafx.application.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +14,7 @@ import io.jsonwebtoken.*;
 
 @Component
 public class JwtUtils {
-    private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     @Value("${easyfood.app.jwtSecret}")
     private String jwtSecret;

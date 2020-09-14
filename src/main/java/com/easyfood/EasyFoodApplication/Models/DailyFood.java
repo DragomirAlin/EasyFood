@@ -21,10 +21,10 @@ public class DailyFood {
     private String date;
 
 
-    @JoinColumn(name = "user_name")
+    @Column(name = "user")
     private String user;
 
-    @Column(name = "type_menu8")
+    @Column(name = "type_menu")
     private String typeOfMenu;
 
     @Column(name = "nameProduct")

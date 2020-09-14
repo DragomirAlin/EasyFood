@@ -6,6 +6,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.easyfood.EasyFoodApplication.Models.User;
+import javafx.application.Application;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +29,8 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+
     public UserDetailsImpl(Long id, String username, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
@@ -39,7 +44,7 @@ public class UserDetailsImpl implements UserDetails {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
-
+        logger.info("User build and return");
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
