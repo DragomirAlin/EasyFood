@@ -51,7 +51,15 @@ public class DailyController {
         return dailyService.viewAllbreakfast(typeOfMenu);
     }
 
-    //delete product from menu by id
+    @GetMapping("/view/currentDay")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
+    public ArrayList<DailyFood> viewAllCurrentDay(){
+        return dailyService.viewAllCurrentDay();
+    }
+
+
+
+        //delete product from menu by id
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void deleteProduct(@PathVariable(value = "id") int id){

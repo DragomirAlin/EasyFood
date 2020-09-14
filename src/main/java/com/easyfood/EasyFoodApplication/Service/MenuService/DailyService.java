@@ -59,12 +59,21 @@ public class DailyService {
 
     //delete product from menu
     public void deleteProduct(int id) {
-        ArrayList<DailyFood> dailyFoodList = dailyRepository.findDailyFoodsByName(getUsername());
-        if (dailyFoodList.stream().anyMatch(object ->
-                id == object.getId())) {
-            dailyRepository.deleteById(id);
-        }
+//        ArrayList<DailyFood> dailyFoodList = dailyRepository.findAllByName(getUsername());
+//        if (dailyFoodList.stream().anyMatch(object ->
+//                id == object.getId())) {
+//            dailyRepository.deleteById(id);
+//        }
+
+        dailyRepository.deleteById(id);
+
     }
+
+    public ArrayList<DailyFood> viewAllCurrentDay(){
+        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(),getData());
+        return currentDayList;
+    }
+
 
     //get username from current session
     private String getUsername() {

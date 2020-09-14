@@ -12,5 +12,7 @@ import java.util.ArrayList;
 public interface DailyRepository extends JpaRepository<DailyFood, Integer> {
 //    @Query("select * from dailymenu WHERE ")
     ArrayList<DailyFood> findByUserAndTypeOfMenu(String name, String typeOfMenu);
-    ArrayList<DailyFood> findDailyFoodsByName(String name);
+    ArrayList<DailyFood> findAllByName(String name);
+    ArrayList<DailyFood> findAllByNameAndDate(String name, String date);
+    ArrayList<DailyFood> findAllByUserAndDate(String name, String date);
 }
