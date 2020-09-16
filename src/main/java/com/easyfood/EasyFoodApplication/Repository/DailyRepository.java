@@ -16,4 +16,5 @@ public interface DailyRepository extends JpaRepository<DailyFood, Long> {
     ArrayList<DailyFood> findAllByNameAndDate(String name, String date);
     ArrayList<DailyFood> findAllByUserAndDate(String name, String date);
     void deleteById(long id);
+    ArrayList<DailyFood> findAllByUserAndDateAndTypeOfMenu(String name, String date, String typeOfMenu);
 }

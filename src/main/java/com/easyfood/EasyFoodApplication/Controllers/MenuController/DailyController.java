@@ -23,46 +23,38 @@ public class DailyController {
     @Autowired
     private DailyService dailyService;
 
-    //add product in menu requestBody{name product, type of menu}
+    //add product in menu with custom weight
     @PostMapping("/add")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void addMenu(@RequestBody MenuAdd menuAdd)  {
-        dailyService.addMenu(menuAdd);
-    }
-
-    //add product in menu with custom weight
-    @PostMapping("/addW")
-    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void addMenu(@RequestBody MenuWeight menuWeight)  {
-        dailyService.addMenuWithWeight(menuWeight);
+    public void addMenu(@RequestBody MenuWeight menuWeight) {
+        dailyService.addMenu(menuWeight);
     }
 
     //update weight product from menu list
     @PutMapping("/edit/weight/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void editWeight(@PathVariable(value = "id") long id, @RequestBody double weight) throws DailyFoodNotFoundException {
-        dailyService.editWeight(id, weight);
+    public void editWeight(@PathVariable("id") long id, @RequestBody DailyFood dailyFood) throws DailyFoodNotFoundException {
+        dailyService.editWeight(id, dailyFood.getWeight());
+
     }
 
     //view all product by type of menu
     @GetMapping("/view/{typeOfMenu}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<DailyFood> viewAll(@PathVariable String typeOfMenu){
+    public ArrayList<DailyFood> viewAll(@PathVariable String typeOfMenu) {
         return dailyService.viewAllbreakfast(typeOfMenu);
     }
 
     @GetMapping("/view/currentDay")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<DailyFood> viewAllCurrentDay(){
+    public ArrayList<DailyFood> viewAllCurrentDay() {
         return dailyService.viewAllCurrentDay();
     }
 
-
-
-        //delete product from menu by id
+    //delete product from menu by id
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void deleteProduct(@PathVariable(value = "id") long id){
+    public void deleteProduct(@PathVariable(value = "id") long id) {
         dailyService.deleteProduct(id);
     }
 

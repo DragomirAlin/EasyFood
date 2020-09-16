@@ -1,5 +1,9 @@
 package com.easyfood.EasyFoodApplication.Models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -9,6 +13,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "dailymenu")
 public class DailyFood {
 
@@ -19,7 +26,6 @@ public class DailyFood {
     @NotBlank
     @Size(max = 20)
     private String date;
-
 
     @Column(name = "user")
     private String user;
@@ -51,99 +57,99 @@ public class DailyFood {
     @Column(name = "price")
     private double price;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getTypeOfMenu() {
-        return typeOfMenu;
-    }
-
-    public void setTypeOfMenu(String typeOfMenu) {
-        this.typeOfMenu = typeOfMenu;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getCalories() {
-        return calories;
-    }
-
-    public void setCalories(double calories) {
-        this.calories = calories;
-    }
-
-    public double getProteins() {
-        return proteins;
-    }
-
-    public void setProteins(double proteins) {
-        this.proteins = proteins;
-    }
-
-    public double getCarbohydrates() {
-        return carbohydrates;
-    }
-
-    public void setCarbohydrates(double carbohydrates) {
-        this.carbohydrates = carbohydrates;
-    }
-
-    public double getFat() {
-        return fat;
-    }
-
-    public void setFat(double fat) {
-        this.fat = fat;
-    }
-
-    public String getShop() {
-        return shop;
-    }
-
-    public void setShop(String shop) {
-        this.shop = shop;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+//
+//    public String getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(String date) {
+//        this.date = date;
+//    }
+//
+//    public String getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(String user) {
+//        this.user = user;
+//    }
+//
+//    public String getTypeOfMenu() {
+//        return typeOfMenu;
+//    }
+//
+//    public void setTypeOfMenu(String typeOfMenu) {
+//        this.typeOfMenu = typeOfMenu;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public double getWeight() {
+//        return weight;
+//    }
+//
+//    public void setWeight(double weight) {
+//        this.weight = weight;
+//    }
+//
+//    public double getCalories() {
+//        return calories;
+//    }
+//
+//    public void setCalories(double calories) {
+//        this.calories = calories;
+//    }
+//
+//    public double getProteins() {
+//        return proteins;
+//    }
+//
+//    public void setProteins(double proteins) {
+//        this.proteins = proteins;
+//    }
+//
+//    public double getCarbohydrates() {
+//        return carbohydrates;
+//    }
+//
+//    public void setCarbohydrates(double carbohydrates) {
+//        this.carbohydrates = carbohydrates;
+//    }
+//
+//    public double getFat() {
+//        return fat;
+//    }
+//
+//    public void setFat(double fat) {
+//        this.fat = fat;
+//    }
+//
+//    public String getShop() {
+//        return shop;
+//    }
+//
+//    public void setShop(String shop) {
+//        this.shop = shop;
+//    }
+//
+//    public double getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
 }
