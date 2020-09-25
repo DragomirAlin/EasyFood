@@ -19,8 +19,6 @@ import java.util.Date;
 @Slf4j
 @Service
 public class DailyService {
-
-
     final static double proteins = 4.0;
     final static double carbohydrates = 4.0;
     final static double fat = 9.0;
