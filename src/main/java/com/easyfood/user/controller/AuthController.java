@@ -11,6 +11,7 @@ import com.easyfood.role.repository.RoleRepository;
 import com.easyfood.user.repository.UserRepository;
 import com.easyfood.security.jwt.JwtUtils;
 import com.easyfood.security.service.UserDetailsImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Slf4j
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
@@ -59,12 +61,14 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-
+        
+        log.info("{} just logged in", userDetails.getUsername());
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
+
     }
 
     //register
@@ -119,6 +123,7 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
+        log.info("{} registered",user.getUsername());
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }

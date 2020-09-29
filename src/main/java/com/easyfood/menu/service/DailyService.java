@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,12 +38,12 @@ public class DailyService {
     //save product of Menu with new weight
     public void addMenu(MenuWeight menuWeight) {
         dailyRepository.save(build(menuWeight));
-        log.info("Saved Menu in database");
+        log.info("{} saved menu in database", menuWeight.getNameProduct());
     }
 
     //view all product by type of menu
     public ArrayList<DailyFood> viewAllbreakfast(String typeOfMenu) {
-        log.info("Return all product by type of menu");
+        log.info("Return all product by {}.", typeOfMenu);
         return dailyRepository.findAllByUserAndDateAndTypeOfMenu(getUsername(), getData(), typeOfMenu);
 
     }
@@ -59,12 +60,13 @@ public class DailyService {
         dailyFood.setPrice(newProduct.getPrice());
         dailyFood.setWeight(weight);
         dailyRepository.save(dailyFood);
+        log.info("The {} product has been edited.", dailyFood.getName());
 
     }
 
     //delete product from menu
     public void deleteProduct(long id) {
-       dailyRepository.deleteById(id);
+        dailyRepository.deleteById(id);
     }
 
     public ArrayList<DailyFood> viewAllCurrentDay() {
@@ -84,7 +86,7 @@ public class DailyService {
     private DailyFood build(MenuWeight menuAdd) {
         Product newProduct = calculateNewMacroProduct(menuAdd.getNameProduct(), menuAdd.getWeightProduct());
         DailyFood dailyFood = setParametersDailyFood(newProduct, menuAdd.getTypeOfMenu());
-        log.info("Menu object has been built with custom weight");
+        log.info("Menu {} object has been built with custom weight", dailyFood.getName());
         return dailyFood;
     }
 
@@ -101,7 +103,7 @@ public class DailyService {
         dailyFood.setPrice(product.getPrice());
         dailyFood.setWeight(product.getWeight());
         dailyFood.setName(product.getName());
-        log.info("set new Parameters for object");
+        log.info("set new Parameters for {}", dailyFood.getName());
         return dailyFood;
     }
 
@@ -125,7 +127,7 @@ public class DailyService {
         newProduct.setPrice(calculatePriceProductByWeight(foundProduct.getPrice(), weight, foundProduct.getWeight()));
         newProduct.setWeight(weight);
         newProduct.setName(foundProduct.getName());
-        log.info("calculate macronutrients for product");
+        log.info("calculate macronutrients for {}", newProduct.getName());
         return newProduct;
     }
 
