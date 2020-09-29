@@ -1,12 +1,11 @@
 package com.easyfood.Service.MenuService;
 
 import com.easyfood.Exception.DailyFoodNotFoundException;
-import com.easyfood.Models.*;
 import com.easyfood.Models.MenuWeight;
 import com.easyfood.Models.Product;
 import com.easyfood.Repository.DailyRepository;
 import com.easyfood.Repository.ProductRepository;
-import com.easyfood.Security.service.IAuthenticationFacade;
+import com.easyfood.security.service.IAuthenticationFacade;
 import com.easyfood.Models.DailyFood;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

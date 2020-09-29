@@ -22,7 +22,7 @@ public class UserController {
     public Optional<User> getUser(@PathVariable String email){
         return userService.loadUserFromEmail(email);
     }
-    
+
 }
 
 

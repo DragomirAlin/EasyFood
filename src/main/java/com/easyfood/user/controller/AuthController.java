@@ -2,15 +2,15 @@ package com.easyfood.Controllers;
 
 import com.easyfood.Models.ERole;
 import com.easyfood.Models.Role;
-import com.easyfood.Models.User;
+import com.easyfood.user.model.User;
 import com.easyfood.Payload.request.LoginRequest;
 import com.easyfood.Payload.request.SignupRequest;
 import com.easyfood.Payload.response.JwtResponse;
 import com.easyfood.Payload.response.MessageResponse;
 import com.easyfood.Repository.RoleRepository;
 import com.easyfood.Repository.UserRepository;
-import com.easyfood.Security.jwt.JwtUtils;
-import com.easyfood.Security.service.UserDetailsImpl;
+import com.easyfood.security.jwt.JwtUtils;
+import com.easyfood.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

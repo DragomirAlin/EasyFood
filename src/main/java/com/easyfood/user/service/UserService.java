@@ -1,7 +1,7 @@
 package com.easyfood.Service;
 
-import com.easyfood.Models.User;
-import com.easyfood.Repository.UserRepository;
+import com.easyfood.user.model.User;
+import com.easyfood.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.easyfood.Security;
+package com.easyfood.security.config;
 
-import com.easyfood.Security.jwt.AuthEntryPointJwt;
+import com.easyfood.security.jwt.AuthEntryPointJwt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.easyfood.Security.jwt.AuthTokenFilter;
-import com.easyfood.Security.service.UserDetailsServiceImpl;
+import com.easyfood.security.jwt.AuthTokenFilter;
+import com.easyfood.security.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity

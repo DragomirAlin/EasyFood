@@ -1,4 +1,5 @@
-package com.easyfood.Models;
+package com.easyfood.user.model;
+import com.easyfood.Models.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
