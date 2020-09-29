@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/test/menu")
+@RequestMapping("/api/menu")
 public class DailyController {
 
     @Autowired

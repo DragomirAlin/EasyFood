@@ -1,14 +1,12 @@
 package com.easyfood.Models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Menu {
 
     private Product product;
 
-    public Product getProduct(){
-        return this.product;
-    }
-
-    public void setProduct(Product product){
-        this.product = product;
-    }
 }

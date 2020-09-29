@@ -1,8 +1,13 @@
 package com.easyfood.Models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "menus")
 public class Prod {
 
@@ -14,19 +19,4 @@ public class Prod {
     @Column(length = 20)
     private EMenu name;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public EMenu getName() {
-        return name;
-    }
-
-    public void setName(EMenu name) {
-        this.name = name;
-    }
 }

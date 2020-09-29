@@ -18,7 +18,7 @@ public class EasyFoodApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EasyFoodApplication.class, args);
 		log.info("The application has started.");
-		
+
 	}
 
 }
