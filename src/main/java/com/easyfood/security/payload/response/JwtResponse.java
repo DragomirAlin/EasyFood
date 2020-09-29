@@ -1,4 +1,4 @@
-package com.easyfood.Payload.response;
+package com.easyfood.security.payload.response;
 
 import java.util.List;
 

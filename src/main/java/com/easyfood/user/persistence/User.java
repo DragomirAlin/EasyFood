@@ -1,5 +1,5 @@
-package com.easyfood.user.model;
-import com.easyfood.Models.Role;
+package com.easyfood.user.persistence;
+import com.easyfood.role.persistence.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

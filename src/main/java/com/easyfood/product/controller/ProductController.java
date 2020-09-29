@@ -1,7 +1,7 @@
-package com.easyfood.Controllers.MenuController;
+package com.easyfood.product.controller;
 
-import com.easyfood.Models.Product;
-import com.easyfood.Service.MenuService.ProductService;
+import com.easyfood.product.persistence.Product;
+import com.easyfood.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

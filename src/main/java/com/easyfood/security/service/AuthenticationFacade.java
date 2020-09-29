@@ -1,4 +1,4 @@
-package com.easyfood.Security.service;
+package com.easyfood.security.service;
 
 import javafx.application.Application;
 import org.slf4j.Logger;

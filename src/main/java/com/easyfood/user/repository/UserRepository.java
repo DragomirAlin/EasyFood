@@ -1,6 +1,6 @@
-package com.easyfood.Repository;
+package com.easyfood.user.repository;
 
-import com.easyfood.user.model.User;
+import com.easyfood.user.persistence.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

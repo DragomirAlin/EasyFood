@@ -1,6 +1,6 @@
-package com.easyfood.Service;
+package com.easyfood.role.service;
 
-import com.easyfood.Repository.RoleRepository;
+import com.easyfood.role.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

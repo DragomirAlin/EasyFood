@@ -1,7 +1,7 @@
-package com.easyfood.Repository;
+package com.easyfood.role.repository;
 
-import com.easyfood.Models.ERole;
-import com.easyfood.Models.Role;
+import com.easyfood.role.model.ERole;
+import com.easyfood.role.persistence.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

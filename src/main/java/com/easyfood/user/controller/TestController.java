@@ -1,4 +1,4 @@
-package com.easyfood.Controllers;
+package com.easyfood.user.controller;
 
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.security.access.prepost.PreAuthorize;

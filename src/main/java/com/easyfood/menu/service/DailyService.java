@@ -1,12 +1,12 @@
-package com.easyfood.Service.MenuService;
+package com.easyfood.menu.service;
 
-import com.easyfood.Exception.DailyFoodNotFoundException;
-import com.easyfood.Models.MenuWeight;
-import com.easyfood.Models.Product;
-import com.easyfood.Repository.DailyRepository;
-import com.easyfood.Repository.ProductRepository;
+import com.easyfood.exception.DailyFoodNotFoundException;
+import com.easyfood.menu.dto.MenuWeight;
+import com.easyfood.product.persistence.Product;
+import com.easyfood.menu.repository.MenuRepository;
+import com.easyfood.product.repository.ProductRepository;
 import com.easyfood.security.service.IAuthenticationFacade;
-import com.easyfood.Models.DailyFood;
+import com.easyfood.menu.persistence.DailyFood;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -28,7 +28,7 @@ public class DailyService {
     private ProductRepository productRepository;
 
     @Autowired
-    private DailyRepository dailyRepository;
+    private MenuRepository dailyRepository;
 
     @Autowired
     private IAuthenticationFacade authenticationFacade;

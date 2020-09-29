@@ -1,4 +1,4 @@
-package com.easyfood.Exception;
+package com.easyfood.exception;
 
 public class DailyFoodNotFoundException extends Exception{
         private long id;

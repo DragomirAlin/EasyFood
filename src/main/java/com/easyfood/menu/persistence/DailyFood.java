@@ -1,4 +1,4 @@
-package com.easyfood.Models;
+package com.easyfood.menu.persistence;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.easyfood.Models;
+package com.easyfood.product.persistence;
 
 
 import lombok.Getter;

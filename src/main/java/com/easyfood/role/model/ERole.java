@@ -1,4 +1,4 @@
-package com.easyfood.Models;
+package com.easyfood.role.model;
 
 public enum ERole {
     ROLE_USER,

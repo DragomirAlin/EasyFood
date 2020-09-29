@@ -1,4 +1,4 @@
-package com.easyfood.Payload.request;
+package com.easyfood.security.payload.request;
 
 import javax.validation.constraints.NotBlank;
 

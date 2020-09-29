@@ -1,7 +1,7 @@
-package com.easyfood.Controllers;
+package com.easyfood.role.controller;
 
 
-import com.easyfood.Service.RoleService;
+import com.easyfood.role.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

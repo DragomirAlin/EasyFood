@@ -1,14 +1,14 @@
-package com.easyfood.Controllers;
+package com.easyfood.user.controller;
 
-import com.easyfood.Models.ERole;
-import com.easyfood.Models.Role;
-import com.easyfood.user.model.User;
-import com.easyfood.Payload.request.LoginRequest;
-import com.easyfood.Payload.request.SignupRequest;
-import com.easyfood.Payload.response.JwtResponse;
-import com.easyfood.Payload.response.MessageResponse;
-import com.easyfood.Repository.RoleRepository;
-import com.easyfood.Repository.UserRepository;
+import com.easyfood.role.model.ERole;
+import com.easyfood.role.persistence.Role;
+import com.easyfood.user.persistence.User;
+import com.easyfood.security.payload.request.LoginRequest;
+import com.easyfood.security.payload.request.SignupRequest;
+import com.easyfood.security.payload.response.JwtResponse;
+import com.easyfood.security.payload.response.MessageResponse;
+import com.easyfood.role.repository.RoleRepository;
+import com.easyfood.user.repository.UserRepository;
 import com.easyfood.security.jwt.JwtUtils;
 import com.easyfood.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;

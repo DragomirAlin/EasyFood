@@ -1,17 +1,18 @@
-package com.easyfood.Security.service;
+package com.easyfood.security.service;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import com.easyfood.Models.User;
+import com.easyfood.user.persistence.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 public class UserDetailsImpl implements UserDetails {

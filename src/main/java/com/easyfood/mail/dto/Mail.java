@@ -1,4 +1,4 @@
-package com.easyfood.Mail;
+package com.easyfood.mail.dto;
 
 import lombok.Getter;
 import lombok.Setter;

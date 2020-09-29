@@ -1,7 +1,7 @@
-package com.easyfood.Controllers;
+package com.easyfood.user.controller;
 
-import com.easyfood.Models.User;
-import com.easyfood.Service.UserService;
+import com.easyfood.user.persistence.User;
+import com.easyfood.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

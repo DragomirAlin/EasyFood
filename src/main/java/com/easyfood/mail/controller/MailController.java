@@ -1,7 +1,7 @@
-package com.easyfood.Controllers;
+package com.easyfood.mail.controller;
 
-import com.easyfood.Mail.Mail;
-import com.easyfood.Mail.MailServiceImpl;
+import com.easyfood.mail.service.MailServiceImpl;
+import com.easyfood.mail.dto.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

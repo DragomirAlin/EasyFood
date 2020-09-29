@@ -1,13 +1,13 @@
-package com.easyfood.Repository;
+package com.easyfood.menu.repository;
 
-import com.easyfood.Models.DailyFood;
+import com.easyfood.menu.persistence.DailyFood;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
 @Repository
-public interface DailyRepository extends JpaRepository<DailyFood, Long> {
+public interface MenuRepository extends JpaRepository<DailyFood, Long> {
 //    @Query("select * from dailymenu WHERE ")
     ArrayList<DailyFood> findByUserAndTypeOfMenu(String name, String typeOfMenu);
     ArrayList<DailyFood> findAllByName(String name);

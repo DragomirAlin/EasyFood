@@ -1,7 +1,7 @@
-package com.easyfood.Service.MenuService;
+package com.easyfood.product.service;
 
-import com.easyfood.Models.Product;
-import com.easyfood.Repository.ProductRepository;
+import com.easyfood.product.persistence.Product;
+import com.easyfood.product.repository.ProductRepository;
 import com.easyfood.security.service.IAuthenticationFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

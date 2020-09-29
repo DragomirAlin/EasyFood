@@ -1,4 +1,4 @@
-package com.easyfood.Mail;
+package com.easyfood.mail.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

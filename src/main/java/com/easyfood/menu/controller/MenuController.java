@@ -1,10 +1,9 @@
-package com.easyfood.Controllers.MenuController;
+package com.easyfood.menu.controller;
 
-import com.easyfood.Exception.DailyFoodNotFoundException;
-import com.easyfood.Models.*;
-import com.easyfood.Models.MenuWeight;
-import com.easyfood.Service.MenuService.DailyService;
-import com.easyfood.Models.DailyFood;
+import com.easyfood.exception.DailyFoodNotFoundException;
+import com.easyfood.menu.dto.MenuWeight;
+import com.easyfood.menu.service.DailyService;
+import com.easyfood.menu.persistence.DailyFood;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/menu")
-public class DailyController {
+public class MenuController {
 
     @Autowired
     private DailyService dailyService;

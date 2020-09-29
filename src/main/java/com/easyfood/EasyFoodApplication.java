@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Slf4j
 @SpringBootApplication
-@EnableJpaRepositories("com.easyfood.Repository")
 public class EasyFoodApplication {
 
 	public static void main(String[] args) {
