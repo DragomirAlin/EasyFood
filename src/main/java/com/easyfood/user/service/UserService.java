@@ -1,23 +1,17 @@
 package com.easyfood.user.service;
 
+
 import com.easyfood.user.persistence.User;
-import com.easyfood.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
-public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+public interface UserService {
 
-
-    public Optional<User> loadUserFromEmail(String email){
-        Optional<User> user = userRepository.findByEmail(email);
-        return user;
-    }
-
+    Optional<User> loadUserFromEmail(String email);
+    public Optional<User> findUserByEmail(String email);
+    public Optional<User> findUserByResetToken(String resetToken);
+    public void save(User user);
 
 }

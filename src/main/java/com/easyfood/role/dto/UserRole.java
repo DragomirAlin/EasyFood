@@ -1,4 +1,4 @@
-package com.easyfood.role.model;
+package com.easyfood.role.dto;
 
 import lombok.Getter;
 import lombok.Setter;

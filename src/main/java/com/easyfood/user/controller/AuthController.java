@@ -1,6 +1,6 @@
 package com.easyfood.user.controller;
 
-import com.easyfood.role.model.ERole;
+import com.easyfood.role.dto.ERole;
 import com.easyfood.role.persistence.Role;
 import com.easyfood.user.persistence.User;
 import com.easyfood.security.payload.request.LoginRequest;
