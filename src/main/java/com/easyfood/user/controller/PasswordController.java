@@ -4,6 +4,7 @@ import com.easyfood.mail.dto.Mail;
 import com.easyfood.mail.service.MailService;
 import com.easyfood.security.payload.response.MessageResponse;
 import com.easyfood.user.persistence.User;
+import com.easyfood.user.service.PasswordService;
 import com.easyfood.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,84 +27,24 @@ import java.util.UUID;
 @RequestMapping("/password")
 public class PasswordController {
 
-    @Value("${easyfood.app.emailFrom}")
-    private String sender;
-
     @Autowired
-    private UserService userService;
+    private PasswordService passwordService;
 
-    @Autowired
-    private MailService emailService;
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/forgot/{userEmail}")
     public void processForgotPasswordRequest(@PathVariable String userEmail, HttpServletRequest request) {
-
-        Optional<User> optional = userService.findUserByEmail(userEmail);
-
-        if (!optional.isPresent()) {
-            log.info("{} this email do not exist", userEmail);
-        } else {
-            User user = optional.get();
-            user.setTokenReset(UUID.randomUUID().toString());
-            userService.save(user);
-
-            String appUrl = request.getScheme() + "://" + request.getServerName() + ":8080";
-
-            Mail passwordResetEmail = new Mail();
-            passwordResetEmail.setMailFrom(sender);
-            passwordResetEmail.setMailTo(user.getEmail());
-            passwordResetEmail.setMailSubject("Password Reset Request");
-            passwordResetEmail.setMailContent("To reset your password, click the link below:\n" + appUrl
-                    + "/reset?token=" + user.getTokenReset());
-
-            emailService.sendMail(passwordResetEmail);
-            log.info("A password reset link has been sent to {} " + userEmail);
-        }
+        passwordService.processForgotPasswordRequest(userEmail, request);
     }
 
     @GetMapping("/reset")
     public ResponseEntity processForgotPasswordRequest(@RequestParam("token") String token, HttpServletResponse res) {
-
-        Optional<User> user = userService.findByTokenReset(token);
-
-        if (user.isPresent()) {
-            res.setStatus(HttpServletResponse.SC_OK);
-            log.info("{} accessed the password reset page",user.get().getUsername());
-            return ResponseEntity.ok(new MessageResponse("Access for reset password"));
-        }
-
-        log.warn("This token {} is wrong");
-        res.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        return (ResponseEntity) ResponseEntity.badRequest().body(new MessageResponse("Wrong token"));
-
+        return passwordService.processForgotPasswordRequest(token, res);
     }
 
     @PostMapping("/reset")
     public void setNewPassword(@RequestParam Map<String, String> requestParams) {
-        Optional<User> user = userService.findByTokenReset(requestParams.get("token"));
-
-        if (user.isPresent()) {
-
-            User resetUser = user.get();
-
-            // Set new password
-            resetUser.setPassword(bCryptPasswordEncoder.encode(requestParams.get("password")));
-            log.info("Set new password for {}", user.get().getUsername());
-            // Set the reset token to null so it cannot be used again
-            resetUser.setTokenReset(null);
-            log.info("Token reset for {}", user.get().getUsername());
-
-            // Save user
-            userService.save(resetUser);
-        }
-
-
+        passwordService.setNewPassword(requestParams);
     }
-
-
 
 
 }
