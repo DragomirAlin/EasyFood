@@ -16,6 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Boolean existsByUsername(String username);
     Optional<User> findByEmail(String email);
     Boolean existsByEmail(String email);
+    Optional<User> findByTokenReset(String tokenReset);
 
     @Transactional
     @Query(value = "SELECT * FROM users", nativeQuery=true)
