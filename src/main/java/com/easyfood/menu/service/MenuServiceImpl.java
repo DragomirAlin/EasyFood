@@ -2,6 +2,7 @@ package com.easyfood.menu.service;
 
 import com.easyfood.exception.DailyFoodNotFoundException;
 import com.easyfood.menu.dto.MenuWeight;
+import com.easyfood.menu.dto.TotalDay;
 import com.easyfood.product.persistence.Product;
 import com.easyfood.menu.repository.MenuRepository;
 import com.easyfood.product.repository.ProductRepository;
@@ -16,10 +17,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class DailyService {
+public class MenuServiceImpl implements MenuService{
     final static double proteins = 4.0;
     final static double carbohydrates = 4.0;
     final static double fat = 9.0;
@@ -177,6 +180,44 @@ public class DailyService {
         // double result = (weight * price) / productWeight;
         double result = (price * weight) / productWeight;
         return result;
+    }
+
+    public TotalDay viewTotal() {
+        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(), getData());
+
+        TotalDay totalDay = new TotalDay();
+        totalDay.setTotalCalories(totalCalories(currentDayList));
+        totalDay.setTotalProteins(totalProteins(currentDayList));
+        totalDay.setTotalCarbohydrates(totalCarbohydrates(currentDayList));
+        totalDay.setTotalFats(totalFats(currentDayList));
+        totalDay.setTotalPrice(totalPrice(currentDayList));
+
+        return totalDay;
+    }
+
+    public double totalCalories(ArrayList<DailyFood> dailyFoods) {
+        double allCalories = dailyFoods.stream().map(DailyFood::getCalories).reduce(0.0, Double::sum);
+        return allCalories;
+    }
+
+    public double totalProteins(ArrayList<DailyFood> dailyFoods) {
+        double allProteins = dailyFoods.stream().map(DailyFood::getProteins).reduce(0.0, Double::sum);
+        return allProteins;
+    }
+
+    public double totalCarbohydrates(ArrayList<DailyFood> dailyFoods) {
+        double allCarbohydrates = dailyFoods.stream().map(DailyFood::getCarbohydrates).reduce(0.0, Double::sum);
+        return allCarbohydrates;
+    }
+
+    public double totalFats(ArrayList<DailyFood> dailyFoods) {
+        double allFats = dailyFoods.stream().map(DailyFood::getFat).reduce(0.0, Double::sum);
+        return allFats;
+    }
+
+    public double totalPrice(ArrayList<DailyFood> dailyFoods) {
+        double allPrice = dailyFoods.stream().map(DailyFood::getPrice).reduce(0.0, Double::sum);
+        return allPrice;
     }
 
 

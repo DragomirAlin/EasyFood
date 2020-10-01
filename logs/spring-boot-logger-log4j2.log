@@ -1,0 +1,80 @@
+2020-10-01 15:28:00,279 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
+2020-10-01 15:28:00,456 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 7944 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
+2020-10-01 15:28:00,461 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-10-01 15:28:00,463 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-10-01 15:28:03,687 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-01 15:28:03,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-10-01 15:28:03,689 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-01 15:28:03,850 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-10-01 15:28:04,163 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-01 15:28:04,256 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-01 15:28:04,309 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
+2020-10-01 15:28:05,312 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
+2020-10-01 15:28:05,408 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-01 15:28:05,598 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-01 15:28:06,211 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-01 15:28:07,010 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-01 15:28:07,033 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-01 15:28:08,219 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-01 15:28:08,912 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 9.438 seconds (JVM running for 14.027)
+2020-10-01 15:28:08,916 INFO c.e.EasyFoodApplication [restartedMain] The application has started.
+2020-10-01 15:30:07,351 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-01 15:30:07,881 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-1] Load dragomir by username and return user object
+2020-10-01 15:30:07,921 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-1] User dragomir build and return
+2020-10-01 15:30:08,074 INFO c.e.u.s.AuthService [http-nio-8080-exec-1] dragomir just logged in
+2020-10-01 15:32:15,983 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-5] Load dragomir by username and return user object
+2020-10-01 15:32:15,986 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-5] User dragomir build and return
+2020-10-01 15:32:16,004 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-5] calculate macronutrients for banana
+2020-10-01 15:32:16,004 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-5] Get user information.
+2020-10-01 15:32:16,005 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-5] set new Parameters for banana
+2020-10-01 15:32:16,005 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-5] Menu banana object has been built with custom weight
+2020-10-01 15:32:16,049 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-5] banana saved menu in database
+2020-10-01 15:32:39,995 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-6] Load dragomir by username and return user object
+2020-10-01 15:32:39,997 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-6] User dragomir build and return
+2020-10-01 15:32:40,004 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-6] calculate macronutrients for banana
+2020-10-01 15:32:40,004 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-6] Get user information.
+2020-10-01 15:32:40,005 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-6] set new Parameters for banana
+2020-10-01 15:32:40,005 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-6] Menu banana object has been built with custom weight
+2020-10-01 15:32:40,014 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-6] banana saved menu in database
+2020-10-01 15:32:50,718 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-7] Load dragomir by username and return user object
+2020-10-01 15:32:50,720 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-7] User dragomir build and return
+2020-10-01 15:32:50,727 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-7] calculate macronutrients for banana
+2020-10-01 15:32:50,727 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-7] Get user information.
+2020-10-01 15:32:50,728 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-7] set new Parameters for banana
+2020-10-01 15:32:50,728 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-7] Menu banana object has been built with custom weight
+2020-10-01 15:32:50,738 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-7] banana saved menu in database
+2020-10-01 15:33:18,332 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-8] Load dragomir by username and return user object
+2020-10-01 15:33:18,334 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-8] User dragomir build and return
+2020-10-01 15:33:18,339 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-8] calculate macronutrients for banana
+2020-10-01 15:33:18,340 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-8] Get user information.
+2020-10-01 15:33:18,341 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-8] set new Parameters for banana
+2020-10-01 15:33:18,341 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-8] Menu banana object has been built with custom weight
+2020-10-01 15:33:18,355 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-8] banana saved menu in database
+2020-10-01 15:34:59,992 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-2] Load dragomir by username and return user object
+2020-10-01 15:34:59,994 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-2] User dragomir build and return
+2020-10-01 15:34:59,996 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-2] Get user information.
+2020-10-01 15:36:14,140 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-4] Load dragomir by username and return user object
+2020-10-01 15:36:14,143 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-4] User dragomir build and return
+2020-10-01 15:36:14,150 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-4] calculate macronutrients for banana
+2020-10-01 15:36:14,150 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-4] Get user information.
+2020-10-01 15:36:14,151 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-4] set new Parameters for banana
+2020-10-01 15:36:14,151 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-4] Menu banana object has been built with custom weight
+2020-10-01 15:36:14,161 INFO c.e.m.s.MenuServiceImpl [http-nio-8080-exec-4] banana saved menu in database
+2020-10-01 15:36:15,522 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-5] Load dragomir by username and return user object
+2020-10-01 15:36:15,525 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-5] User dragomir build and return
+2020-10-01 15:36:15,529 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-5] Get user information.
+2020-10-01 16:40:04,851 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-8] Load dragomir by username and return user object
+2020-10-01 16:40:04,855 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-8] User dragomir build and return
+2020-10-01 16:40:04,859 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-8] Get user information.
+2020-10-01 16:40:05,503 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-9] Load dragomir by username and return user object
+2020-10-01 16:40:05,504 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-9] User dragomir build and return
+2020-10-01 16:40:05,507 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-9] Get user information.
+2020-10-01 16:40:18,287 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-10] Load dragomir by username and return user object
+2020-10-01 16:40:18,290 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-10] User dragomir build and return
+2020-10-01 16:40:18,293 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-10] Get user information.
+2020-10-01 16:40:18,869 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-2] Load dragomir by username and return user object
+2020-10-01 16:40:18,872 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-2] User dragomir build and return
+2020-10-01 16:40:18,874 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-2] Get user information.
+2020-10-01 16:40:25,601 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-1] Load dragomir by username and return user object
+2020-10-01 16:40:25,603 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-1] User dragomir build and return
+2020-10-01 16:40:25,606 INFO c.e.s.s.AuthenticationFacade [http-nio-8080-exec-1] Get user information.
