@@ -22,6 +22,7 @@ public class RoleController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteRole(@PathVariable long user_id, @PathVariable long role_id) {
         roleService.deleteRole(user_id, role_id);
+
     }
 
     @PostMapping("/role/add/{user_id}/{role_id}")
