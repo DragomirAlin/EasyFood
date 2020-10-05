@@ -14,5 +14,6 @@ public interface MenuService {
     void editWeight(long id, double weight) throws DailyFoodNotFoundException;
     void deleteProduct(long id);
     ArrayList<DailyFood> viewAllCurrentDay();
-    TotalDay viewTotal();
+    ArrayList<DailyFood> viewAllMenuFromDay(String day);
+    TotalDay viewTotal(String date);
 }

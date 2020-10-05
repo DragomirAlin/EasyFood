@@ -1,5 +1,6 @@
 package com.easyfood.mail.controller;
 
+import com.easyfood.mail.service.MailService;
 import com.easyfood.mail.service.MailServiceImpl;
 import com.easyfood.mail.dto.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class MailController {
 
     @Autowired
-    private MailServiceImpl mailService;
+    private MailService mailService;
 
     @PostMapping("/sentTo/{emailTo}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")

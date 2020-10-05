@@ -41,10 +41,18 @@ public class MenuController {
         return menuService.viewAllbreakfast(typeOfMenu);
     }
 
+    //view all from current day
     @GetMapping("/view/currentDay")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public ArrayList<DailyFood> viewAllCurrentDay() {
         return menuService.viewAllCurrentDay();
+    }
+
+    //view all from a custom day
+    @GetMapping("/view/date/{day}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
+    public ArrayList<DailyFood> viewAllFromDay(@PathVariable String day) {
+        return menuService.viewAllMenuFromDay(day);
     }
 
     //delete product from menu by id
@@ -55,10 +63,10 @@ public class MenuController {
     }
 
 
-    @GetMapping("/view/currentDay/total")
+    @GetMapping("/view/{date}/total")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public TotalDay viewTotalCurrentDay() {
-        return menuService.viewTotal();
+    public TotalDay viewTotalByDate(@PathVariable String date) {
+        return menuService.viewTotal(date);
     }
 
 }

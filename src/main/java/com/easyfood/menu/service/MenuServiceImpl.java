@@ -78,6 +78,12 @@ public class MenuServiceImpl implements MenuService{
         return currentDayList;
     }
 
+    public ArrayList<DailyFood> viewAllMenuFromDay(String day){
+        ArrayList<DailyFood> allFromADay = dailyRepository.findAllByUserAndDate(getUsername(), day);
+        log.info("Retun all product from {} .", day);
+        return allFromADay;
+    }
+
 
     //get username from current session
     private String getUsername() {
@@ -182,8 +188,10 @@ public class MenuServiceImpl implements MenuService{
         return result;
     }
 
-    public TotalDay viewTotal() {
-        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(), getData());
+
+
+    public TotalDay viewTotal(String date) {
+        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(), date);
 
         TotalDay totalDay = new TotalDay();
         totalDay.setTotalCalories(totalCalories(currentDayList));
@@ -191,9 +199,9 @@ public class MenuServiceImpl implements MenuService{
         totalDay.setTotalCarbohydrates(totalCarbohydrates(currentDayList));
         totalDay.setTotalFats(totalFats(currentDayList));
         totalDay.setTotalPrice(totalPrice(currentDayList));
-
         return totalDay;
     }
+
 
     public double totalCalories(ArrayList<DailyFood> dailyFoods) {
         double allCalories = dailyFoods.stream().map(DailyFood::getCalories).reduce(0.0, Double::sum);

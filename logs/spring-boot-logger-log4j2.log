@@ -1,50 +1,20 @@
-2020-10-01 20:03:42,523 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
-2020-10-01 20:03:42,607 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 1820 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
-2020-10-01 20:03:42,612 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
-2020-10-01 20:03:42,614 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-10-01 20:03:45,008 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2020-10-01 20:03:45,009 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-10-01 20:03:45,010 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-10-01 20:03:45,197 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-10-01 20:03:45,444 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-10-01 20:03:45,492 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
-2020-10-01 20:03:45,552 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
-2020-10-01 20:03:45,623 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-10-01 20:03:45,639 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
-2020-10-01 20:03:45,734 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-01 20:03:46,438 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2020-10-01 20:03:46,972 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-10-01 20:03:46,985 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-10-01 20:03:47,770 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-10-01 20:03:48,294 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 6.22 seconds (JVM running for 8.437)
-2020-10-01 20:03:48,297 INFO c.e.EasyFoodApplication [restartedMain] The application has started.
-2020-10-01 20:05:27,801 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-10-01 20:05:28,243 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-1] Load dragomir by username and return user object
-2020-10-01 20:05:28,266 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-1] User dragomir build and return
-2020-10-01 20:05:28,425 INFO c.e.u.s.AuthService [http-nio-8080-exec-1] dragomir just logged in
-2020-10-01 20:05:51,448 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-4] Load dragomir by username and return user object
-2020-10-01 20:05:51,450 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-4] User dragomir build and return
-2020-10-01 20:05:51,555 INFO c.e.u.s.AuthService [http-nio-8080-exec-4] dragomir just logged in
-2020-10-01 20:05:58,814 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-9] Load dragomir by username and return user object
-2020-10-01 20:05:58,817 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-9] User dragomir build and return
-2020-10-01 20:05:58,853 INFO c.e.p.s.ProductService [http-nio-8080-exec-9] Return all products
-2020-10-01 20:07:31,397 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-10] Load dragomir by username and return user object
-2020-10-01 20:07:31,400 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-10] User dragomir build and return
-2020-10-01 20:08:52,316 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-3] Load dragomir by username and return user object
-2020-10-01 20:08:52,319 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-3] User dragomir build and return
-2020-10-01 20:10:16,554 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-6] Load dragomir by username and return user object
-2020-10-01 20:10:16,558 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-6] User dragomir build and return
-2020-10-01 20:11:17,031 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-7] Load dragomir by username and return user object
-2020-10-01 20:11:17,034 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-7] User dragomir build and return
-2020-10-01 20:11:38,279 INFO c.e.u.s.PasswordService [http-nio-8080-exec-7] A password reset link has been sent to {} dragomirdanielalin@gmail.com
-2020-10-01 20:12:04,543 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-8] Load dragomir by username and return user object
-2020-10-01 20:12:04,546 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-8] User dragomir build and return
-2020-10-01 20:12:36,200 INFO c.e.u.s.AuthService [http-nio-8080-exec-10] plesa registered
-2020-10-01 20:12:46,161 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-2] Load dragomir by username and return user object
-2020-10-01 20:12:46,164 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-2] User dragomir build and return
-2020-10-01 20:13:06,422 INFO c.e.u.s.PasswordService [http-nio-8080-exec-2] A password reset link has been sent to {} plesaxalexandru@gmail.com
-2020-10-01 20:18:10,312 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-4] Load dragomir by username and return user object
-2020-10-01 20:18:10,315 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-4] User dragomir build and return
-2020-10-01 20:18:40,878 INFO c.e.s.s.UserDetailsServiceImpl [http-nio-8080-exec-6] Load dragomir by username and return user object
-2020-10-01 20:18:40,880 INFO c.e.s.s.UserDetailsImpl [http-nio-8080-exec-6] User dragomir build and return
-2020-10-01 20:18:40,981 INFO c.e.u.s.AuthService [http-nio-8080-exec-6] dragomir just logged in
+2020-10-05 11:11:09,901 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
+2020-10-05 11:11:09,987 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 13872 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
+2020-10-05 11:11:09,992 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-10-05 11:11:09,994 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-10-05 11:11:11,571 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-05 11:11:11,572 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-10-05 11:11:11,572 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-05 11:11:11,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-10-05 11:11:11,867 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-05 11:11:11,909 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-05 11:11:11,966 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
+2020-10-05 11:11:12,034 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-05 11:11:12,049 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
+2020-10-05 11:11:12,132 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-05 11:11:12,592 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-05 11:11:13,154 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-05 11:11:13,166 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-05 11:11:13,845 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-05 11:11:14,342 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 4.799 seconds (JVM running for 6.962)
+2020-10-05 11:11:14,345 INFO c.e.EasyFoodApplication [restartedMain] The application has started.
