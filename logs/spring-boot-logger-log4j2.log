@@ -1,20 +1,21 @@
-2020-10-05 11:11:09,901 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
-2020-10-05 11:11:09,987 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 13872 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
-2020-10-05 11:11:09,992 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
-2020-10-05 11:11:09,994 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-10-05 11:11:11,571 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2020-10-05 11:11:11,572 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-10-05 11:11:11,572 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-10-05 11:11:11,688 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-10-05 11:11:11,867 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-10-05 11:11:11,909 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
-2020-10-05 11:11:11,966 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
-2020-10-05 11:11:12,034 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-10-05 11:11:12,049 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
-2020-10-05 11:11:12,132 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-10-05 11:11:12,592 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2020-10-05 11:11:13,154 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-10-05 11:11:13,166 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-10-05 11:11:13,845 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-10-05 11:11:14,342 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 4.799 seconds (JVM running for 6.962)
-2020-10-05 11:11:14,345 INFO c.e.EasyFoodApplication [restartedMain] The application has started.
+2020-10-06 17:54:15,914 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.easyfood.EasyFoodApplicationTests], using SpringBootContextLoader
+2020-10-06 17:54:15,926 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [com.easyfood.EasyFoodApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-10-06 17:54:15,927 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [com.easyfood.EasyFoodApplicationTests]: EasyFoodApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-10-06 17:54:16,098 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration com.easyfood.EasyFoodApplication for test class com.easyfood.EasyFoodApplicationTests
+2020-10-06 17:54:16,227 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-10-06 17:54:16,248 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2ea6e30c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6138e79a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2dcd168a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@388526fb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@21a21c64, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7803bfd, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@42bc14c1, org.springframework.test.context.event.EventPublishingTestExecutionListener@531f4093, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@62ef27a8, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6436a7db, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@460ebd80, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6f3c660a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@74f5ce22, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@25aca718]
+2020-10-06 17:54:16,598 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
+2020-10-06 17:54:16,665 INFO o.s.b.StartupInfoLogger [main] Starting EasyFoodApplicationTests on DESKTOP-Q6EL2OO with PID 18932 (started by Alin in D:\Easy Food)
+2020-10-06 17:54:16,670 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-10-06 17:54:16,673 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-10-06 17:54:18,676 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-06 17:54:18,748 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-10-06 17:54:19,002 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-06 17:54:19,107 INFO c.e.s.c.WebSecurityConfig [main] The password has been encoded.
+2020-10-06 17:54:20,042 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-10-06 17:54:21,522 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-10-06 17:54:21,545 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-10-06 17:54:23,004 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-06 17:54:23,613 INFO o.s.b.StartupInfoLogger [main] Started EasyFoodApplicationTests in 7.312 seconds (JVM running for 9.055)
+2020-10-06 17:54:23,921 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-10-06 17:54:23,936 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
