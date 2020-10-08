@@ -5,6 +5,7 @@ import com.easyfood.files.payload.ResponseFile;
 import com.easyfood.files.payload.ResponseMessage;
 import com.easyfood.files.persistence.FileDB;
 import com.easyfood.files.service.FileStorageService;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.persistence.Transient;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,10 @@ public class FileController {
 
     @Autowired
     private FileStorageService storageService;
+
+    @Transient
+    private String imgUtility;
+
 
     @PostMapping("/upload")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
@@ -67,5 +74,17 @@ public class FileController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
                 .body(fileDB.getData());
+    }
+
+    @GetMapping("/files/view")
+    public FileDB getImgUtility() throws UnsupportedEncodingException {
+        String id = "4ede5acd-da04-4107-b908-f92c769f1419";
+        FileDB fileDB = storageService.getFile(id);
+
+        byte[] encodeBase64 = Base64.encodeBase64(fileDB.getData());
+//        String base64Encoded = new String(encodeBase64, "UTF-8");
+//        return base64Encoded;
+        return fileDB;
+
     }
 }
