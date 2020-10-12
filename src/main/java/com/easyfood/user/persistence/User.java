@@ -43,6 +43,10 @@ public class User {
     @Column(columnDefinition = "varchar(150) default 'null'")
     private String tokenReset;
 
+    private int age;
+
+    private String gender;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),

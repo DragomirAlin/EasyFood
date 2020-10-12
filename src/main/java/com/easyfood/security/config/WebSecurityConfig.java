@@ -25,6 +25,13 @@ import com.easyfood.security.service.UserDetailsServiceImpl;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String[] WHITELIST = {
+            "/api/auth/**",
+            "/api/**",
+            "/password/**"
+    };
+
+
     private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     @Autowired
@@ -60,9 +67,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/**").permitAll()
-                .antMatchers("/password/**").permitAll()
+                .authorizeRequests().antMatchers(WHITELIST).permitAll()
+
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
