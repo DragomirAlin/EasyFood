@@ -31,13 +31,16 @@ public class FileDB {
     @Lob
     private byte[] data;
 
+    private String username;
+
     public FileDB() {
     }
 
-    public FileDB(String name, String type, byte[] data) {
+    public FileDB(String name, String type, byte[] data, String username) {
         this.name = name;
         this.type = type;
         this.data = data;
+        this.username = username;
     }
 
 }
