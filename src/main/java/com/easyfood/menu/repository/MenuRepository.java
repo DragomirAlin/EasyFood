@@ -1,5 +1,6 @@
 package com.easyfood.menu.repository;
 
+import com.easyfood.files.persistence.FileDB;
 import com.easyfood.menu.persistence.DailyFood;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

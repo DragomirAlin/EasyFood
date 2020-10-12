@@ -31,7 +31,6 @@ public class MenuController {
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void editWeight(@PathVariable("id") long id, @RequestBody DailyFood dailyFood) throws DailyFoodNotFoundException {
         menuService.editWeight(id, dailyFood.getWeight());
-
     }
 
     //view all product by type of menu
