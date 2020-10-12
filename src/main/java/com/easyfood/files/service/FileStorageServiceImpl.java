@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Service
-public class FileStorageServiceImpl implements FileStorageService{
+public class FileStorageServiceImpl implements FileStorageService {
 
     @Autowired
     private FileDBRepository fileDBRepository;
