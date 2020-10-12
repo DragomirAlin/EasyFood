@@ -2,6 +2,7 @@ package com.easyfood.product.controller;
 
 import com.easyfood.product.persistence.Product;
 import com.easyfood.product.service.ProductService;
+import com.easyfood.product.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductService productService;
+    ProductServiceImpl productService;
 
     //add new product requestBody{name, calories, carbohydrates, proteins, fat, weight(the product when purchased), price(the product when purchased), shop
     @PostMapping("/add")

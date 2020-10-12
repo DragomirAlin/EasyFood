@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class ProductService {
+public class ProductServiceImpl {
 
     @Autowired
     ProductRepository productRepository;
