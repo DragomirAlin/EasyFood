@@ -1,11 +1,9 @@
 package com.easyfood.mail.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 public class Mail {
 
     private String mailFrom;

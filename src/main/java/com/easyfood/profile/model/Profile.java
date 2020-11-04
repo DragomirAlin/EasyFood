@@ -1,12 +1,9 @@
 package com.easyfood.profile.model;
 
-import com.easyfood.product.persistence.Product;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Data
 public class Profile {
      private String username;
      private int age;

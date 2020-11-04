@@ -1,13 +1,9 @@
 package com.easyfood.profile.persistence;
 
-import com.easyfood.user.persistence.User;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @Entity(name = "profile")
 public class ProfileUser {
 

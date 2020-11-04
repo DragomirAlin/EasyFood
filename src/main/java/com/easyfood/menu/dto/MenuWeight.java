@@ -1,13 +1,8 @@
 package com.easyfood.menu.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.Entity;
-
-@Getter
-@Setter
+@Data
 public class MenuWeight {
 
     private String typeOfMenu;

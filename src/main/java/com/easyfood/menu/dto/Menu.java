@@ -1,11 +1,10 @@
 package com.easyfood.menu.dto;
 
 import com.easyfood.product.persistence.Product;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+
+@Data
 public class Menu {
 
     private Product product;

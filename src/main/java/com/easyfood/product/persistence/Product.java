@@ -1,17 +1,12 @@
 package com.easyfood.product.persistence;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.Data;
 import javax.persistence.*;
 
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Product {
 
 
