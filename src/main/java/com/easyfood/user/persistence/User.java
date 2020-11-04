@@ -1,4 +1,5 @@
 package com.easyfood.user.persistence;
+import com.easyfood.profile.persistence.ProfileUser;
 import com.easyfood.role.persistence.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,8 +45,12 @@ public class User {
     private String tokenReset;
 
     private int age;
+    private double height;
+
+    private double weight;
 
     private String gender;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",

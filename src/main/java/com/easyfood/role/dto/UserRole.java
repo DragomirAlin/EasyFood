@@ -1,5 +1,6 @@
 package com.easyfood.role.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -15,7 +15,7 @@ public class MailController {
     @Autowired
     private MailService mailService;
 
-    @PostMapping("/sentTo/{emailTo}")
+    @PostMapping("sentTo/{emailTo}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
     public void sendMail(@PathVariable String emailTo){
         Mail mail = new Mail();
