@@ -5,8 +5,8 @@ Tracking your food
 
 ### Programming languages
 
-Java 8 - old
-Java 15 - new
+- Java 8 - old
+- Java 15 - new
 
 ### Platforms
 
