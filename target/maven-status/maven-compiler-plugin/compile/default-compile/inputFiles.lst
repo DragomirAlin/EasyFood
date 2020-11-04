@@ -5,6 +5,7 @@ D:\Easy Food\src\main\java\com\easyfood\product\controller\ProductController.jav
 D:\Easy Food\src\main\java\com\easyfood\exception\FileUploadExceptionAdvice.java
 D:\Easy Food\src\main\java\com\easyfood\files\persistence\FileDB.java
 D:\Easy Food\src\main\java\com\easyfood\files\repository\FileDBRepository.java
+D:\Easy Food\src\main\java\com\easyfood\profile\controller\ProfileController.java
 D:\Easy Food\src\main\java\com\easyfood\user\service\PasswordService.java
 D:\Easy Food\src\main\java\com\easyfood\menu\persistence\DailyFood.java
 D:\Easy Food\src\main\java\com\easyfood\security\jwt\AuthEntryPointJwt.java
@@ -22,6 +23,7 @@ D:\Easy Food\src\main\java\com\easyfood\user\controller\PasswordController.java
 D:\Easy Food\src\main\java\com\easyfood\user\service\UserService.java
 D:\Easy Food\src\main\java\com\easyfood\mail\dto\Mail.java
 D:\Easy Food\src\main\java\com\easyfood\menu\service\MenuServiceImpl.java
+D:\Easy Food\src\main\java\com\easyfood\product\service\ProductServiceImpl.java
 D:\Easy Food\src\main\java\com\easyfood\user\service\UserServiceImpl.java
 D:\Easy Food\src\main\java\com\easyfood\security\payload\request\LoginRequest.java
 D:\Easy Food\src\main\java\com\easyfood\menu\repository\MenuRepository.java
@@ -29,6 +31,7 @@ D:\Easy Food\src\main\java\com\easyfood\menu\dto\Menu.java
 D:\Easy Food\src\main\java\com\easyfood\role\controller\RoleController.java
 D:\Easy Food\src\main\java\com\easyfood\files\payload\ResponseMessage.java
 D:\Easy Food\src\main\java\com\easyfood\role\dto\ERole.java
+D:\Easy Food\src\main\java\com\easyfood\profile\service\ProfileService.java
 D:\Easy Food\src\main\java\com\easyfood\role\service\RoleService.java
 D:\Easy Food\src\main\java\com\easyfood\mail\service\MailService.java
 D:\Easy Food\src\main\java\com\easyfood\user\service\AuthService.java
@@ -52,7 +55,10 @@ D:\Easy Food\src\main\java\com\easyfood\user\controller\UserController.java
 D:\Easy Food\src\main\java\com\easyfood\profile\persistence\ProfileUser.java
 D:\Easy Food\src\main\java\com\easyfood\security\service\UserDetailsImpl.java
 D:\Easy Food\src\main\java\com\easyfood\product\service\ProductService.java
+D:\Easy Food\src\main\java\com\easyfood\profile\model\Profile.java
 D:\Easy Food\src\main\java\com\easyfood\user\controller\AuthController.java
 D:\Easy Food\src\main\java\com\easyfood\product\persistence\Product.java
+D:\Easy Food\src\main\java\com\easyfood\profile\repository\ProfileRepository.java
 D:\Easy Food\src\main\java\com\easyfood\user\persistence\User.java
+D:\Easy Food\src\main\java\com\easyfood\files\service\FileStorageServiceImpl.java
 D:\Easy Food\src\main\java\com\easyfood\mail\controller\MailController.java
