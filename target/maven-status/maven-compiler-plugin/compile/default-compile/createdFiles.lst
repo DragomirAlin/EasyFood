@@ -8,11 +8,11 @@ com\easyfood\security\payload\request\SignupRequest.class
 com\easyfood\profile\persistence\ProfileUser.class
 com\easyfood\product\repository\ProductRepository.class
 com\easyfood\security\jwt\AuthTokenFilter.class
-com\easyfood\user\dto\User.class
 com\easyfood\user\service\UserServiceImpl.class
 com\easyfood\user\controller\TestController.class
 com\easyfood\product\controller\ProductController.class
 com\easyfood\profile\model\Profile.class
+com\easyfood\menu\dto\Menu$MenuBuilder.class
 com\easyfood\security\config\WebSecurityConfig.class
 com\easyfood\menu\persistence\DailyFood.class
 com\easyfood\security\service\UserDetailsServiceImpl.class
@@ -62,3 +62,4 @@ com\easyfood\mail\config\MailConfiguration.class
 com\easyfood\security\payload\response\MessageResponse.class
 com\easyfood\role\dto\UserRole.class
 com\easyfood\user\service\AuthService.class
+com\easyfood\user\dto\UserDTO.class

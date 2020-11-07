@@ -7,7 +7,7 @@ import com.easyfood.product.persistence.Product;
 import com.easyfood.menu.repository.MenuRepository;
 import com.easyfood.product.repository.ProductRepository;
 import com.easyfood.security.service.IAuthenticationFacade;
-import com.easyfood.menu.persistence.DailyFood;
+import com.easyfood.menu.persistence.Menu;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,8 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @Service
@@ -32,7 +31,7 @@ public class MenuServiceImpl implements MenuService{
     private ProductRepository productRepository;
 
     @Autowired
-    private MenuRepository dailyRepository;
+    private MenuRepository menuRepository;
 
     @Autowired
     private IAuthenticationFacade authenticationFacade;
@@ -40,20 +39,20 @@ public class MenuServiceImpl implements MenuService{
 
     //save product of Menu with new weight
     public void addMenu(MenuWeight menuWeight) {
-        dailyRepository.save(build(menuWeight));
+        menuRepository.save(build(menuWeight));
         log.info("{} saved menu in database", menuWeight.getNameProduct());
     }
 
     //view all product by type of menu
-    public ArrayList<DailyFood> viewAllbreakfast(String typeOfMenu) {
+    public ArrayList<Menu> viewAllbreakfast(String typeOfMenu) {
         log.info("Return all product by {}.", typeOfMenu);
-        return dailyRepository.findAllByUserAndDateAndTypeOfMenu(getUsername(), getData(), typeOfMenu);
+        return menuRepository.findAllByUserAndDateAndTypeOfMenu(getUsername(), getData(), typeOfMenu);
 
     }
 
     //editing the weight of an existing product
     public void editWeight(long id, double weight) throws DailyFoodNotFoundException {
-        DailyFood dailyFood = dailyRepository.findById(id)
+        Menu dailyFood = menuRepository.findById(id)
                 .orElseThrow(() -> new DailyFoodNotFoundException(id));
         Product newProduct = calculateNewMacroProduct(dailyFood.getName(), weight);
         dailyFood.setCalories(newProduct.getCalories());
@@ -62,24 +61,24 @@ public class MenuServiceImpl implements MenuService{
         dailyFood.setFat(newProduct.getFat());
         dailyFood.setPrice(newProduct.getPrice());
         dailyFood.setWeight(weight);
-        dailyRepository.save(dailyFood);
+        menuRepository.save(dailyFood);
         log.info("The {} product has been edited.", dailyFood.getName());
 
     }
 
     //delete product from menu
     public void deleteProduct(long id) {
-        dailyRepository.deleteById(id);
+        menuRepository.deleteById(id);
     }
 
-    public ArrayList<DailyFood> viewAllCurrentDay() {
-        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(), getData());
+    public ArrayList<Menu> viewAllCurrentDay() {
+        ArrayList<Menu> currentDayList = menuRepository.findAllByUserAndDate(getUsername(), getData());
         log.info("Return all product from current day");
         return currentDayList;
     }
 
-    public ArrayList<DailyFood> viewAllMenuFromDay(String day){
-        ArrayList<DailyFood> allFromADay = dailyRepository.findAllByUserAndDate(getUsername(), day);
+    public ArrayList<Menu> viewAllMenuFromDay(String day){
+        ArrayList<Menu> allFromADay = menuRepository.findAllByUserAndDate(getUsername(), day);
         log.info("Retun all product from {} .", day);
         return allFromADay;
     }
@@ -92,26 +91,28 @@ public class MenuServiceImpl implements MenuService{
     }
 
     //build DailyFood object with custom weight(calculate all parameters by new weight)
-    private DailyFood build(MenuWeight menuAdd) {
+    private Menu build(MenuWeight menuAdd) {
         Product newProduct = calculateNewMacroProduct(menuAdd.getNameProduct(), menuAdd.getWeightProduct());
-        DailyFood dailyFood = setParametersDailyFood(newProduct, menuAdd.getTypeOfMenu());
+        Menu dailyFood = setParametersDailyFood(newProduct, menuAdd.getTypeOfMenu());
         log.info("Menu {} object has been built with custom weight", dailyFood.getName());
         return dailyFood;
     }
 
     //set new parameters for DailyFood object
-    public DailyFood setParametersDailyFood(Product product, String typeOfMenu) {
-        DailyFood dailyFood = new DailyFood();
-        dailyFood.setUser(getUsername());
-        dailyFood.setDate(getData());
-        dailyFood.setTypeOfMenu(typeOfMenu);
-        dailyFood.setCalories(product.getCalories());
-        dailyFood.setProteins(product.getProteins());
-        dailyFood.setCarbohydrates(product.getCarbohydrates());
-        dailyFood.setFat(product.getFat());
-        dailyFood.setPrice(product.getPrice());
-        dailyFood.setWeight(product.getWeight());
-        dailyFood.setName(product.getName());
+    public Menu setParametersDailyFood(Product product, String typeOfMenu) {
+        Menu dailyFood = new Menu.MenuBuilder()
+                .user(getUsername())
+                .date(getData())
+                .typeOfMenu(typeOfMenu)
+                .calories(product.getCalories())
+                .proteins(product.getProteins())
+                .carbohydrates(product.getCarbohydrates())
+                .fat(product.getFat())
+                .price(product.getPrice())
+                .weight(product.getWeight())
+                .name(product.getName())
+                .build();
+
         log.info("set new Parameters for {}", dailyFood.getName());
         return dailyFood;
     }
@@ -191,8 +192,7 @@ public class MenuServiceImpl implements MenuService{
 
 
     public TotalDay viewTotal(String date) {
-        ArrayList<DailyFood> currentDayList = dailyRepository.findAllByUserAndDate(getUsername(), date);
-
+        ArrayList<Menu> currentDayList = menuRepository.findAllByUserAndDate(getUsername(), date);
         TotalDay totalDay = new TotalDay();
         totalDay.setTotalCalories(totalCalories(currentDayList));
         totalDay.setTotalProteins(totalProteins(currentDayList));
@@ -203,28 +203,28 @@ public class MenuServiceImpl implements MenuService{
     }
 
 
-    public double totalCalories(ArrayList<DailyFood> dailyFoods) {
-        double allCalories = dailyFoods.stream().map(DailyFood::getCalories).reduce(0.0, Double::sum);
+    public double totalCalories(ArrayList<Menu> dailyFoods) {
+        double allCalories = dailyFoods.stream().map(Menu::getCalories).reduce(0.0, Double::sum);
         return allCalories;
     }
 
-    public double totalProteins(ArrayList<DailyFood> dailyFoods) {
-        double allProteins = dailyFoods.stream().map(DailyFood::getProteins).reduce(0.0, Double::sum);
+    public double totalProteins(ArrayList<Menu> dailyFoods) {
+        double allProteins = dailyFoods.stream().map(Menu::getProteins).reduce(0.0, Double::sum);
         return allProteins;
     }
 
-    public double totalCarbohydrates(ArrayList<DailyFood> dailyFoods) {
-        double allCarbohydrates = dailyFoods.stream().map(DailyFood::getCarbohydrates).reduce(0.0, Double::sum);
+    public double totalCarbohydrates(ArrayList<Menu> dailyFoods) {
+        double allCarbohydrates = dailyFoods.stream().map(Menu::getCarbohydrates).reduce(0.0, Double::sum);
         return allCarbohydrates;
     }
 
-    public double totalFats(ArrayList<DailyFood> dailyFoods) {
-        double allFats = dailyFoods.stream().map(DailyFood::getFat).reduce(0.0, Double::sum);
+    public double totalFats(ArrayList<Menu> dailyFoods) {
+        double allFats = dailyFoods.stream().map(Menu::getFat).reduce(0.0, Double::sum);
         return allFats;
     }
 
-    public double totalPrice(ArrayList<DailyFood> dailyFoods) {
-        double allPrice = dailyFoods.stream().map(DailyFood::getPrice).reduce(0.0, Double::sum);
+    public double totalPrice(ArrayList<Menu> dailyFoods) {
+        double allPrice = dailyFoods.stream().map(Menu::getPrice).reduce(0.0, Double::sum);
         return allPrice;
     }
 

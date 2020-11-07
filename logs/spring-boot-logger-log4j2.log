@@ -1,20 +1,22 @@
-2020-11-04 16:09:57,592 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
-2020-11-04 16:09:57,627 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 25272 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
-2020-11-04 16:09:57,631 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
-2020-11-04 16:09:57,632 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2020-11-04 16:09:59,184 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-04 16:09:59,185 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2020-11-04 16:09:59,186 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-11-04 16:09:59,307 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2020-11-04 16:09:59,523 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-11-04 16:09:59,560 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
-2020-11-04 16:09:59,613 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
-2020-11-04 16:09:59,673 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-11-04 16:09:59,759 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
-2020-11-04 16:09:59,812 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
-2020-11-04 16:10:00,098 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
-2020-11-04 16:10:00,110 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-11-04 16:10:00,356 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2020-11-04 16:10:00,851 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-11-04 16:10:01,237 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 4.025 seconds (JVM running for 5.414)
-2020-11-04 16:10:01,240 INFO c.e.EasyFoodApplication [restartedMain] The application has started.
+2020-11-07 14:29:01,388 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.0.2.Final
+2020-11-07 14:29:01,465 INFO o.s.b.StartupInfoLogger [restartedMain] Starting EasyFoodApplication on DESKTOP-Q6EL2OO with PID 15540 (D:\Easy Food\target\classes started by Alin in D:\Easy Food)
+2020-11-07 14:29:01,470 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-11-07 14:29:01,471 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-11-07 14:29:03,437 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-07 14:29:03,438 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-11-07 14:29:03,438 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-11-07 14:29:03,559 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-11-07 14:29:03,773 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-11-07 14:29:03,851 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-11-07 14:29:03,907 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'authenticationJwtTokenFilter' configured for use
+2020-11-07 14:29:03,963 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-11-07 14:29:04,078 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Starting...
+2020-11-07 14:29:04,108 INFO c.e.s.c.WebSecurityConfig [restartedMain] The password has been encoded.
+2020-11-07 14:29:04,406 INFO c.z.h.HikariDataSource [task-1] HikariPool-1 - Start completed.
+2020-11-07 14:29:04,422 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-11-07 14:29:04,636 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-11-07 14:29:04,995 INFO o.h.t.PojoInstantiator [task-1] HHH000182: No default (no-argument) constructor for class: com.easyfood.menu.persistence.Menu (class must be instantiated by Interceptor)
+2020-11-07 14:29:05,014 INFO o.h.t.PojoInstantiator [task-1] HHH000182: No default (no-argument) constructor for class: com.easyfood.user.persistence.User (class must be instantiated by Interceptor)
+2020-11-07 14:29:05,268 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-11-07 14:29:05,671 INFO o.s.b.StartupInfoLogger [restartedMain] Started EasyFoodApplication in 4.668 seconds (JVM running for 6.642)
+2020-11-07 14:29:05,675 INFO c.e.EasyFoodApplication [restartedMain] The application has started.

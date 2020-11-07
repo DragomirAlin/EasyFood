@@ -13,6 +13,7 @@ D:\Easy Food\src\main\java\com\easyfood\security\jwt\JwtUtils.java
 D:\Easy Food\src\main\java\com\easyfood\menu\dto\MenuWeight.java
 D:\Easy Food\src\main\java\com\easyfood\user\controller\TestController.java
 D:\Easy Food\src\main\java\com\easyfood\user\repository\UserRepository.java
+D:\Easy Food\src\main\java\com\easyfood\user\dto\UserDTO.java
 D:\Easy Food\src\main\java\com\easyfood\files\controller\FileController.java
 D:\Easy Food\src\main\java\com\easyfood\security\service\IAuthenticationFacade.java
 D:\Easy Food\src\main\java\com\easyfood\security\payload\request\SignupRequest.java
@@ -46,7 +47,6 @@ D:\Easy Food\src\main\java\com\easyfood\menu\dto\TotalDay.java
 D:\Easy Food\src\main\java\com\easyfood\exception\DailyFoodNotFoundException.java
 D:\Easy Food\src\main\java\com\easyfood\role\dto\RoleName.java
 D:\Easy Food\src\main\java\com\easyfood\mail\config\MailConfiguration.java
-D:\Easy Food\src\main\java\com\easyfood\user\dto\User.java
 D:\Easy Food\src\main\java\com\easyfood\menu\service\MenuService.java
 D:\Easy Food\src\main\java\com\easyfood\product\repository\ProductRepository.java
 D:\Easy Food\src\main\java\com\easyfood\role\dto\EMenu.java

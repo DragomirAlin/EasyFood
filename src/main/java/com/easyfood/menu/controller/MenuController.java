@@ -4,7 +4,7 @@ import com.easyfood.exception.DailyFoodNotFoundException;
 import com.easyfood.menu.dto.MenuWeight;
 import com.easyfood.menu.dto.TotalDay;
 import com.easyfood.menu.service.MenuService;
-import com.easyfood.menu.persistence.DailyFood;
+import com.easyfood.menu.persistence.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -29,28 +29,28 @@ public class MenuController {
     //update weight product from menu list
     @PutMapping("/edit/weight/{id}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public void editWeight(@PathVariable("id") long id, @RequestBody DailyFood dailyFood) throws DailyFoodNotFoundException {
+    public void editWeight(@PathVariable("id") long id, @RequestBody Menu dailyFood) throws DailyFoodNotFoundException {
         menuService.editWeight(id, dailyFood.getWeight());
     }
 
     //view all product by type of menu
     @GetMapping("/view/{typeOfMenu}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<DailyFood> viewAll(@PathVariable String typeOfMenu) {
+    public ArrayList<Menu> viewAll(@PathVariable String typeOfMenu) {
         return menuService.viewAllbreakfast(typeOfMenu);
     }
 
     //view all from current day
     @GetMapping("/view/currentDay")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<DailyFood> viewAllCurrentDay() {
+    public ArrayList<Menu> viewAllCurrentDay() {
         return menuService.viewAllCurrentDay();
     }
 
     //view all from a custom day
     @GetMapping("/view/date/{day}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_MODERATOR') or hasRole('ROLE_ADMIN')")
-    public ArrayList<DailyFood> viewAllFromDay(@PathVariable String day) {
+    public ArrayList<Menu> viewAllFromDay(@PathVariable String day) {
         return menuService.viewAllMenuFromDay(day);
     }
 
